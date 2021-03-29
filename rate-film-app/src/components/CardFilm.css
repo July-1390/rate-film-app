@@ -1,4 +1,4 @@
-.card-container {
+.cards-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
@@ -45,12 +45,12 @@ img {
 .translate-film-name {
     color: #808080;
     font-size: 16px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .country {
     color: #262626;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
 }
 
 .director {

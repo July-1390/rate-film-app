@@ -1,0 +1,36 @@
+.film-page-container {
+    display: flex;
+    margin-top: 100px;
+}
+
+.page-film-poster-wrapper {
+    flex-basis: auto;
+    position: relative;
+}
+
+.page-film-poster {
+    width: 30vh;
+}
+
+.page-film-content {
+    flex-grow: 1;
+    overflow: hidden;
+    margin-left: 50px;
+}
+
+.page-film-title {
+    font-size: 34px;
+    font-weight: bold;
+    color: #536273;
+    line-height: 24px;
+    margin-bottom: 5px;
+}
+
+.page-film-country {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.film-page-description {
+    margin-bottom: 30px;
+}

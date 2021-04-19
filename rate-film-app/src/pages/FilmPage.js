@@ -8,7 +8,7 @@ const FilmPage = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    const film = defaultFilms.filter((f) => f.id == id)[0];
+    const film = defaultFilms.filter((f) => f.id.toString() === id)[0];
     setFilm(film);
     console.log(film);
   }, [id]);

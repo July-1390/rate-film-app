@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Votes from "./Votes";
-import loadFilms from "../apiServices";
+import { loadFilms } from "../apiServices";
 import "./CardFilm.css";
 
 // import { snakeToCamel } from "../helpers";

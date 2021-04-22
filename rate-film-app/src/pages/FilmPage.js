@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { defaultFilms } from "../data";
+
+// import { defaultFilms } from "../data";
+import { loadFilm } from "../apiServices";
 import "./FilmPage.css";
 
 const FilmPage = () => {
@@ -8,9 +10,9 @@ const FilmPage = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    const film = defaultFilms.filter((f) => f.id.toString() === id)[0];
-    setFilm(film);
-    console.log(film);
+    loadFilm(id).then((film) => {
+      setFilm(film);
+    });
   }, [id]);
 
   return (
@@ -20,19 +22,19 @@ const FilmPage = () => {
           <div className="page-film-poster-wrapper">
             <img
               className="page-film-poster"
-              src={film.src}
+              src={film.poster_url}
               alt="film poster"
             />
           </div>
           <div className="page-film-content">
-            <h2 className="page-film-title">{film.filmTitle}</h2>
+            <h2 className="page-film-title">{film.title}</h2>
             <h3>
-              {film.translateFilmTitle}, {film.releaseYear}
+              {film.title_ru}, {film.release_year}
             </h3>
             <p className="page-film-country">
-              {film.country}, {film.filmGenre}
+              {film.country}, {film.genre}
             </p>
-            <p className="film-page-description">{film.description}</p>
+            {/* <p className="film-page-description">{film.description}</p> */}
 
             <div>
               <p>Actors:</p>
@@ -42,7 +44,7 @@ const FilmPage = () => {
                     key={actor.id}
                     className="actors"
                     alt="actors"
-                    src={actor.photo}
+                    src={actor.photo_url}
                   />
                 ))}
               </div>

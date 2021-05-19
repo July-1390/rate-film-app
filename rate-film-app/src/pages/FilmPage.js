@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 // import { defaultFilms } from "../data";
 import { loadFilm } from "../apiServices";
@@ -17,6 +17,9 @@ const FilmPage = () => {
 
   return (
     <div>
+      <Link to="/" className="btn--back">
+        <span>Back</span>
+      </Link>
       {film ? (
         <div className="film-page-container">
           <div className="page-film-poster-wrapper">

@@ -1,4 +1,3 @@
-import React from "react";
 import Select from "react-select";
 import "./MySelect.css";
 
@@ -22,7 +21,7 @@ const options = [
   { value: "musical", label: "Musical" },
 ];
 
-const MySelect = () => {
+const MySelect = ({ setSelectedGenres }) => {
   return (
     <div className="select-container">
       <div className="wrapper-checkbox">
@@ -32,10 +31,14 @@ const MySelect = () => {
         </label>
       </div>
       <Select
+        // value={selectedValue}
         options={options}
         isMulti
         className="basic-multi-select"
         classNamePrefix="select"
+        onChange={(options) => {
+          setSelectedGenres(options.map((o) => o.value));
+        }}
       />
     </div>
   );

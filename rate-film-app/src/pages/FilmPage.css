@@ -1,6 +1,6 @@
 .film-page-container {
     display: flex;
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 .page-film-poster-wrapper {
@@ -33,4 +33,22 @@
 
 .film-page-description {
     margin-bottom: 30px;
+}
+
+.btn--back {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 20px;
+    border-radius: 4px;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    font-weight: 700;
+    background-color: #f9c64e;
+    color: #262626
+}
+
+span {
+    font-size: 14px;
 }

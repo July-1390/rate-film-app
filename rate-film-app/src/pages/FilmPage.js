@@ -37,7 +37,7 @@ const FilmPage = () => {
             <p className="page-film-country">
               {film.country}, {film.genre}
             </p>
-            {/* <p className="film-page-description">{film.description}</p> */}
+            <p className="film-page-description">{film.description}</p>
 
             <div>
               <p>Actors:</p>

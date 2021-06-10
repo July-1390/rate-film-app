@@ -4,7 +4,9 @@ import { GiFilmSpool } from "react-icons/gi";
 import Button from "./Button";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ setIsModalVisible }) => {
+  const handleShow = () => setIsModalVisible(true);
+
   return (
     <>
       <header className="header-container ">
@@ -23,6 +25,11 @@ const Header = () => {
               <Link to="/" className="btn-link">
                 <Button buttonStyle="btn--primary">List Of Films</Button>
               </Link>
+            </li>
+            <li>
+              <button buttonStyle="btn--primary" onClick={handleShow}>
+                Log In
+              </button>
             </li>
           </ul>
         </nav>

@@ -18,3 +18,25 @@ export const loadFilm = async (id: string) => {
   const film = await response.json();
   return film;
 };
+
+export const createUser = async (
+  username: string,
+  email: string,
+  password: string
+) => {
+  const body = {
+    username: username,
+    email: email,
+    password: password,
+  };
+  const url = `http://rfilm.mswan.ru/api/v1/users`;
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+  const user = await response.json();
+  return user;
+};

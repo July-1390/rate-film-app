@@ -1,32 +1,21 @@
-import React, { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import { useParams, Link } from "react-router-dom";
 
-// import { defaultFilms } from "../data";
 import { getFilm } from "../apiServices";
+import { Film } from "../interfaces/film";
 import "./FilmPage.css";
 
 const FilmPage = () => {
-  const { id } = useParams();
+  const { id }: { id: any } = useParams();
 
-  const { isLoading, isError, data } = useQuery("film", () => getFilm(id));
-
-  // useEffect(() => {
-  // loadFilm(id).then((film) => {
-  //   setFilm(film);
-  // });
-  // }, [isError]);
-
-  // useEffect(() => {
-  //   console.log(isError, error);
-  // }, [isError]);
+  const { isLoading, data } = useQuery<Film>("film", () => getFilm(id));
 
   return (
     <div>
       <Link to="/" className="btn--back">
         <span>Back</span>
       </Link>
-      {!isLoading ? (
+      {!isLoading && data ? (
         <div className="film-page-container">
           <div className="page-film-poster-wrapper">
             <img

@@ -1,12 +1,16 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { GiFilmSpool } from "react-icons/gi";
 import Button from "./Button";
 import "./Header.css";
 
-const Header = ({ setIsModalVisible, setIsSignUpWindowVisible }) => {
+const Header = ({
+  setIsModalVisible,
+  setIsSignUpWindowVisible,
+}: {
+  setIsModalVisible: (val: boolean) => void;
+  setIsSignUpWindowVisible: (val: boolean) => void;
+}) => {
   const handleShow = () => setIsModalVisible(true);
-
   const handleShowSignUpWindow = () => setIsSignUpWindowVisible(true);
 
   return (
@@ -27,7 +31,7 @@ const Header = ({ setIsModalVisible, setIsSignUpWindowVisible }) => {
               <ul className="nav-list">
                 <li>
                   <Link to="/" className="btn-link">
-                    <Button className="btn--primary">List Of Films</Button>
+                    <Button className="btn-primary">List Of Films</Button>
                   </Link>
                 </li>
                 <li>

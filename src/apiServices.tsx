@@ -1,3 +1,5 @@
+import { Film } from "./interfaces/film";
+
 export const loadFilms = async (genres: string[]) => {
   const searchParams = new URLSearchParams();
 
@@ -12,7 +14,7 @@ export const loadFilms = async (genres: string[]) => {
   return films;
 };
 
-export const getFilm = async (id: string) => {
+export const getFilm = async (id: string): Promise<Film> => {
   const url = `http://rfilm.mswan.ru/api/v1/films/${id}`;
   return fetch(url).then((res) => res.json());
 };

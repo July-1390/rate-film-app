@@ -1,4 +1,5 @@
 {
+  "homepage": "http://july-1390.github.io/rate-film-app",
   "name": "rate-film-app",
   "version": "0.1.0",
   "private": true,
@@ -27,7 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +50,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.1.7"
+    "@types/react-router-dom": "^5.1.7",
+    "gh-pages": "^3.2.2"
   }
 }

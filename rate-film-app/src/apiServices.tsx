@@ -12,6 +12,11 @@ export const loadFilms = async (genres: string[]) => {
   return films;
 };
 
+export const getFilm = async (id: string) => {
+  const url = `http://rfilm.mswan.ru/api/v1/films/${id}`;
+  return fetch(url).then((res) => res.json());
+};
+
 export const loadFilm = async (id: string) => {
   const url = `http://rfilm.mswan.ru/api/v1/films/${id}`;
   const response = await fetch(url);

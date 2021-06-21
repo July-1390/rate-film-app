@@ -1,48 +1,54 @@
 import React, { useState, useEffect } from "react";
+import { useQuery } from "react-query";
 import { useParams, Link } from "react-router-dom";
 
 // import { defaultFilms } from "../data";
-import { loadFilm } from "../apiServices";
+import { getFilm } from "../apiServices";
 import "./FilmPage.css";
 
 const FilmPage = () => {
-  const [film, setFilm] = useState(null);
   const { id } = useParams();
 
-  useEffect(() => {
-    loadFilm(id).then((film) => {
-      setFilm(film);
-    });
-  }, [id]);
+  const { isLoading, isError, data } = useQuery("film", () => getFilm(id));
+
+  // useEffect(() => {
+  // loadFilm(id).then((film) => {
+  //   setFilm(film);
+  // });
+  // }, [isError]);
+
+  // useEffect(() => {
+  //   console.log(isError, error);
+  // }, [isError]);
 
   return (
     <div>
       <Link to="/" className="btn--back">
         <span>Back</span>
       </Link>
-      {film ? (
+      {!isLoading ? (
         <div className="film-page-container">
           <div className="page-film-poster-wrapper">
             <img
               className="page-film-poster"
-              src={film.poster_url}
+              src={data.poster_url}
               alt="film poster"
             />
           </div>
           <div className="page-film-content">
-            <h2 className="page-film-title">{film.title}</h2>
+            <h2 className="page-film-title">{data.title}</h2>
             <h3>
-              {film.title_ru}, {film.release_year}
+              {data.title_ru}, {data.release_year}
             </h3>
             <p className="page-film-country">
-              {film.country}, {film.genre}
+              {data.country}, {data.genre}
             </p>
-            <p className="film-page-description">{film.description}</p>
+            <p className="film-page-description">{data.description}</p>
 
             <div>
               <p>Actors:</p>
               <div className="">
-                {film.actors.map((actor) => (
+                {data.actors.map((actor) => (
                   <img
                     key={actor.id}
                     className="actors"

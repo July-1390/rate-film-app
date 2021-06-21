@@ -11,36 +11,43 @@ const Header = ({ setIsModalVisible, setIsSignUpWindowVisible }) => {
 
   return (
     <>
-      <header className="header-container ">
-        <div className="logo">
-          <Link to="/" className="navbar-logo">
-            <GiFilmSpool className="navbar-icon" />
-            <h4 className="nav-title">
-              Rate<span className="highlight">Film</span>
-            </h4>
-          </Link>
-        </div>
-
-        <nav className="main-nav">
-          <ul className="nav-list">
-            <li>
-              <Link to="/" className="btn-link">
-                <Button className="btn--primary">List Of Films</Button>
+      <div className="background-line">
+        <div className="container">
+          <header className="header-container ">
+            <div className="logo">
+              <Link to="/" className="navbar-logo">
+                <GiFilmSpool className="navbar-icon" />
+                <h4 className="nav-title">
+                  Rate<span className="highlight">Film</span>
+                </h4>
               </Link>
-            </li>
-            <li>
-              <button className="btn--primary" onClick={handleShowSignUpWindow}>
-                Sign Up
-              </button>
-            </li>
-            <li>
-              <button className="btn--primary" onClick={handleShow}>
-                Log In
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </header>
+            </div>
+
+            <nav className="main-nav">
+              <ul className="nav-list">
+                <li>
+                  <Link to="/" className="btn-link">
+                    <Button className="btn--primary">List Of Films</Button>
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    className="btn btn-color"
+                    onClick={handleShowSignUpWindow}
+                  >
+                    Sign Up
+                  </button>
+                </li>
+                <li>
+                  <button className="btn btn-color" onClick={handleShow}>
+                    Log In
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </header>
+        </div>
+      </div>
     </>
   );
 };

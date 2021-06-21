@@ -1,5 +1,7 @@
 import { Film } from "./interfaces/film";
 
+const baseUrl = "https://rfilm.mswan.ru/api/v1";
+
 export const loadFilms = async (genres: string[]) => {
   const searchParams = new URLSearchParams();
 
@@ -7,7 +9,7 @@ export const loadFilms = async (genres: string[]) => {
     searchParams.append("genre", genre);
   }
 
-  const url = "http://rfilm.mswan.ru/api/v1/films?" + searchParams;
+  const url = `${baseUrl}/films/?${searchParams}`;
 
   const response = await fetch(url);
   const films = await response.json();
@@ -15,15 +17,8 @@ export const loadFilms = async (genres: string[]) => {
 };
 
 export const getFilm = async (id: string): Promise<Film> => {
-  const url = `http://rfilm.mswan.ru/api/v1/films/${id}`;
+  const url = `${baseUrl}/films/${id}`;
   return fetch(url).then((res) => res.json());
-};
-
-export const loadFilm = async (id: string) => {
-  const url = `http://rfilm.mswan.ru/api/v1/films/${id}`;
-  const response = await fetch(url);
-  const film = await response.json();
-  return film;
 };
 
 export const createUser = async (
@@ -36,7 +31,7 @@ export const createUser = async (
     email: email,
     password: password,
   };
-  const url = `http://rfilm.mswan.ru/api/v1/users`;
+  const url = `${baseUrl}/users/`;
   const response = await fetch(url, {
     method: "POST",
     headers: {

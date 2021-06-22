@@ -13,7 +13,7 @@ function App() {
   const [isSignUpWindowVisible, setIsSignUpWindowVisible] = useState(false);
 
   return (
-    <Router>
+    <Router> // nothing, just not sure if <Router> is needed here -> probably you can use inside container(line#26) 
       {isModalVisible && <LogInWindow setIsModalVisible={setIsModalVisible} />}
       {isSignUpWindowVisible && (
         <SignUpWindow setIsSignUpWindowVisible={setIsSignUpWindowVisible} />

@@ -3,16 +3,18 @@ import { GiFilmSpool } from "react-icons/gi";
 import Button from "./Button";
 import "./Header.css";
 
-const Header = ({
-  setIsModalVisible,
-  setIsSignUpWindowVisible,
-}: {
+interface IHeaderProps {
   setIsModalVisible: (val: boolean) => void;
   setIsSignUpWindowVisible: (val: boolean) => void;
-}) => {
-  const handleShow = () => setIsModalVisible(true);
-  const handleShowSignUpWindow = () => setIsSignUpWindowVisible(true);
+}
 
+const Header: React.FC<IHeaderProps> = ({ // OR const Header = ({...}: IHeaderProps)
+  setIsModalVisible,
+  setIsSignUpWindowVisible,
+}) => {
+  const handleShow = React.useCallback(() => setIsModalVisible(true), []); 
+  const handleShowSignUpWindow = React.useCallback(() => () => setIsSignUpWindowVisible(true), []);
+// OR you can play with redux here: dispatch(action) -> change the store -> <App /> listens to the store -> modal window will pop up 
   return (
     <>
       <div className="background-line">

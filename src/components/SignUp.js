@@ -33,7 +33,7 @@ const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
 
   const handleCloseSignUp = () => setIsSignUpWindowVisible(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => { // React.useCallback((e) => {...}, [values]) -> in some examples you could meet issues with a lot of rerenderes -> better to wrap it with useCallback 
     e.preventDefault();
     console.log(values.userName, values.email, values.password);
     createUser(values.userName, values.email, values.password);
@@ -62,7 +62,7 @@ const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
                     name="userName"
                     placeholder="Jonny"
                     value={values.userName}
-                    onChange={(e) =>
+                    onChange={(e) => // try to avoid this construction -> it creates a lot of rerenders -> better to add new fn(for exmaple, handleSubmit)
                       setValues({ ...values, userName: e.target.value })
                     }
                   />
@@ -116,7 +116,7 @@ const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
               <button className="signup-footer-link">LOG IN HERE</button>
             </p>
             <p className="policy-text">
-              By creating an account, you agree to the{" "}
+              By creating an account, you agree to the{" "} // I believe it's possible to avoid it(as I understood you need to keep spaces), try to use css here: policy-text{white-space: wrap;// or smth like that} 
               <Link
                 to="https://www.fandango.com/policies/privacy-policy"
                 className="signup-footer-link small"

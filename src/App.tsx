@@ -14,10 +14,14 @@ function App() {
 
   return (
     <Router>
-      {isModalVisible && <LogInWindow setIsModalVisible={setIsModalVisible} />}
-      {isSignUpWindowVisible && (
-        <SignUpWindow setIsSignUpWindowVisible={setIsSignUpWindowVisible} />
-      )}
+      <div>
+        {isModalVisible && (
+          <LogInWindow setIsModalVisible={setIsModalVisible} />
+        )}
+        {isSignUpWindowVisible && (
+          <SignUpWindow setIsSignUpWindowVisible={setIsSignUpWindowVisible} />
+        )}
+      </div>
 
       <Header
         setIsModalVisible={setIsModalVisible}

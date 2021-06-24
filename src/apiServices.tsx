@@ -1,4 +1,5 @@
 import { Film } from "./interfaces/film";
+import { User, UserCreateErrorResponse } from "./interfaces/user";
 
 const baseUrl = "https://rfilm.mswan.ru/api/v1";
 
@@ -25,7 +26,7 @@ export const createUser = async (
   username: string,
   email: string,
   password: string
-) => {
+): Promise<User | UserCreateErrorResponse> => {
   const body = {
     username: username,
     email: email,

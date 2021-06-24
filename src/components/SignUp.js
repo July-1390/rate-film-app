@@ -10,6 +10,7 @@ const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
     password: "",
   });
   const [submitted, setSubmitted] = useState(false);
+
   // const [users, setUsers] = useState([])
   // const [formData, setFormData] = useState('')
 
@@ -35,8 +36,14 @@ const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values.userName, values.email, values.password);
-    createUser(values.userName, values.email, values.password);
+
+    createUser(values.userName, values.email, values.password).then((res) => {
+      if (res.detail?.error_code) {
+        console.log("ERROR", res.detail?.error_code);
+      } else {
+        setIsSignUpWindowVisible(false);
+      }
+    });
     setSubmitted(true);
   };
 

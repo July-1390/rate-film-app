@@ -3,7 +3,8 @@ import { useParams, Link } from "react-router-dom";
 
 import { getFilm } from "../apiServices";
 import { Film } from "../interfaces/film";
-import "./FilmPage.css";
+import Button from "../components/Button";
+import "./FilmPage.scss";
 
 const FilmPage = () => {
   const { id }: { id: any } = useParams();
@@ -12,8 +13,8 @@ const FilmPage = () => {
 
   return (
     <div>
-      <Link to="/" className="btn--back">
-        <span>Back</span>
+      <Link to="/">
+        <Button className="btn-back">Back</Button>
       </Link>
       {!isLoading && data ? (
         <div className="film-page-container">

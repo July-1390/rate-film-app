@@ -1,3 +1,28 @@
+
+//Variables Colors
+
+$main-color: #98b4d4;
+$white: #ffffff;
+$black: #000;
+
+$title-color: #536273;
+$text-color: #262626;
+$undertone-text-color: #808080;
+
+$btn-color: #f9c64e;
+
+//Mixins
+
+@mixin btn-style {
+    padding: 12px 20px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -25,11 +50,15 @@ ul[class], ol[class], li[class] {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
-.container {
+.main-container {
   width: 100%;
   max-width: 1300px;
   margin-right: auto;

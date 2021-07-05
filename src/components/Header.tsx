@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { GiFilmSpool } from "react-icons/gi";
 import Button from "./Button";
-import "./Header.css";
+import "./Header.scss";
 
 const Header = ({
   setIsModalVisible,
@@ -16,7 +16,7 @@ const Header = ({
   return (
     <>
       <div className="background-line">
-        <div className="container">
+        <div className="main-container">
           <header className="header-container ">
             <div className="logo">
               <Link to="/" className="navbar-logo">

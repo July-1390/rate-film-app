@@ -1,11 +1,11 @@
+@import '../styles/App.scss';
+
 .modal-background {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    /* width: 100vw;
-    height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,11 +27,11 @@
     align-items: center;
     border-bottom: 1px solid #e5e5e5;
     padding: 25px;
-    background-color: #98b4d4;
+    background-color: $main-color;
 }
 
 .modal-title {
-    color: #fff;
+    color: $white;
     font-size: 1.5rem;
     line-height: 1;
 }
@@ -47,8 +47,8 @@
 
 .modal-close-btn:before {
     line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
+    color: $black;
+    text-shadow: 0 1px 0 $white;
     content: "\2715";
     opacity: .35;
     font-weight: 700;
@@ -73,7 +73,7 @@
     margin-left: 0;
     font-size: 1.2rem;
     font-weight: 700;
-    color: #262626;
+    color: $text-color;
 }
 
 .form-field {
@@ -81,8 +81,8 @@
     height: 52px;
     font-size: 16px;
     padding: 6px 12px;
-    background-color: #fff;
-    color: #262626;
+    background-color: $white;
+    color: $text-color;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     box-shadow: none;
@@ -96,8 +96,8 @@
     margin-top: 15px;
     text-align: center;
     appearance: none;
-    background-color: #98b4d4;
-    color: #fff;
+    background-color: $main-color;
+    color: $white;
     font-weight: 700;
     border: none;
     border-radius: 5px;

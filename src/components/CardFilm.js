@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Votes from "./Votes";
 import Spinner from "../components/Spinner";
 import { loadFilms } from "../apiServices";
-import "./CardFilm.css";
+import "./CardFilm.scss";
 
 // import { snakeToCamel } from "../helpers";
 
@@ -28,7 +28,7 @@ const CardFilm = ({ genres }) => {
           <div className="cards-container">
             {films.map((film) => (
               <div>
-                <Link className="link" to={`/films/${film.id}`}>
+                <Link to={`/films/${film.id}`}>
                   <div className="card-film" key={film.id}>
                     <div className="poster">
                       <img
@@ -54,12 +54,12 @@ const CardFilm = ({ genres }) => {
                       </div>
 
                       <div>
-                        <p>Actors:</p>
+                        <p className="card-film-actors">Actors:</p>
                         <div className="image-wrapper">
                           {film.actors.slice(0, 4).map((actor) => (
                             <img
                               key={actor.id}
-                              className="actors"
+                              className="img-actors"
                               alt="actors"
                               src={actor.photo_url}
                             />

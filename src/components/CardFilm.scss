@@ -1,3 +1,6 @@
+@import '../styles/App.scss';
+
+
 .cards-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -14,9 +17,6 @@
     margin: 20px 20px;
 }
 
-.link {
-    text-decoration: none;
-}
 
 /* .card-view {
     background: #ffffff;
@@ -43,24 +43,26 @@ img {
 }
 
 .film-title {
-    color: #262626;
+    color: $text-color;
     font-size: 32px;
     font-weight: 700;
 }
 
 .translate-film-name {
-    color: #808080;
+    color: $undertone-text-color;
     font-size: 16px;
     margin-bottom: 20px;
 }
 
 .country {
-    color: #262626;
+    color: $text-color;
     margin-bottom: 20px;
 }
-
+.film-director {
+    color: $text-color;
+}
 .director {
-    color: #808080;
+    color: $undertone-text-color;
 }
 
 .image-wrapper {
@@ -68,11 +70,14 @@ img {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 10px 0px;
-    /* justify-items: center; */
     padding: 10px;
 }
 
-.actors {
+.card-film-actors {
+    color: $text-color;
+}
+
+.img-actors {
     height: 90px;
     object-fit: cover;
     border-radius: 50%;

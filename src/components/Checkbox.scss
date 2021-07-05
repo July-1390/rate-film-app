@@ -1,4 +1,6 @@
-.container {
+@import '../styles/App.scss';
+
+.checkbox-container {
     vertical-align: middle;
 }
 
@@ -6,7 +8,7 @@
     display: inline-block;
     width: 16px;
     height: 16px;
-    background: salmon;
+    background: $main-color;
     border-radius: 3px;
     transition: all 150ms;
 }

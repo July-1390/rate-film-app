@@ -1,5 +1,4 @@
-import React from "react";
-import "./LogIn.css";
+import "./LogIn.scss";
 
 const LogInWindow = ({ setIsModalVisible }) => {
   const handleClose = () => setIsModalVisible(false);

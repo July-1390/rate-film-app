@@ -15,6 +15,9 @@ const CardFilm = ({ genres }) => {
     setIsLoading(true);
     loadFilms(genres).then((films) => {
       setFilms(films);
+// you can play with redux here -> in the <MySelect /> dispatch the genres to the store 
+// -> fetch the movies there on change(or here if you want) with choosen genres(or/and anything else) -> then dispatch the result to the store ->
+// -> here listen to the store -> and render the result(films)
       setIsLoading(false);
     });
   }, [genres]);
@@ -22,11 +25,14 @@ const CardFilm = ({ genres }) => {
   return (
     <>
       {isLoading ? (
-        <Spinner isVisible={isLoading} />
+        <Spinner isVisible={isLoading} /> // nothing, but looks like it's always visible here -> <Spinner />
       ) : (
         <>
           <div className="cards-container">
             {films.map((film) => (
+    // would be nice to create <CardFilm /> -> films.map((film) => <CardFilm film={film} />)
+    // it will be easier to read + you can rename this component, CardList or smth like that
+
               <div>
                 <Link className="link" to={`/films/${film.id}`}>
                   <div className="card-film" key={film.id}>

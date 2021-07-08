@@ -1,4 +1,4 @@
-import "./LogIn.scss";
+import "./ModalStyles.scss";
 
 const LogInWindow = ({ setIsModalVisible }) => {
   const handleClose = () => setIsModalVisible(false);
@@ -10,7 +10,7 @@ const LogInWindow = ({ setIsModalVisible }) => {
             <h3 className="modal-title">SIGN IN</h3>
             <button className="modal-close-btn" onClick={handleClose}></button>
           </div>
-          <div className="login-form-body">
+          <div className="form-body">
             <form>
               <ul>
                 <li className="form-group">

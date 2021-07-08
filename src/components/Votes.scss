@@ -1,0 +1,45 @@
+@import '../styles/App.scss';
+
+.vote-container {
+    display: flex;
+    flex-direction: column;
+
+    .vote-wrapper {
+        border: 1px solid $grey;
+        border-radius: 15px;
+        padding: 15px;
+        width: 45%;
+        display: flex;
+        flex-wrap: wrap;
+        transition: box-shadow .2s, width .2s;
+
+        &:hover {
+            box-shadow: 0 0 8px rgba(33,33,33,.2);
+            width: 46%;
+        }
+
+        .percentage {
+            font-size: 24px;
+            color: $title-hover;
+        }
+
+        .icon-like { 
+            float: right;
+            margin-left: 10px;
+            font-size: 24px;
+            color: $text-color;
+        }
+
+        .count-votes {
+            color: $undertone-text-color;
+            opacity: 50%;
+        }
+        
+    }
+    
+}
+
+
+
+
+

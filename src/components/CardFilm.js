@@ -25,37 +25,36 @@ const CardFilm = ({ genres }) => {
         <Spinner isVisible={isLoading} />
       ) : (
         <>
-          <div className="cards-container">
+          <div className="cards-film-container">
             {films.map((film) => (
               <div>
                 <Link to={`/films/${film.id}`}>
-                  <div className="card-film" key={film.id}>
-                    <div className="poster">
+                  <div className="cards-film" key={film.id}>
+                    <div className="cards-film-poster">
                       <img
                         key={film.id}
                         src={film.poster_url}
                         alt="poster film"
-                        className="card-header-icon"
                       />
                     </div>
-                    <div className="content-film">
-                      <div className="film-description">
-                        <h2 className="film-title">{film.title}</h2>
-                        <p className="translate-film-name">
+                    <div className="cards-film-content">
+                      <div className="cards-film-description">
+                        <h2 className="cards-film-title">{film.title}</h2>
+                        <p className="cards-film-translate-name">
                           {film.title_ru}, {film.release_year}
                         </p>
-                        <p className="country">
+                        <p className="cards-film-country">
                           {film.country}, {film.genre}
                         </p>
-                        <p className="film-director">
+                        <p className="cards-film-director">
                           Directed by {""}
                           <span className="director">{film.director}</span>
                         </p>
                       </div>
 
                       <div>
-                        <p className="card-film-actors">Actors:</p>
-                        <div className="image-wrapper">
+                        <p className="cards-film-name-title">Actors:</p>
+                        <div className="cards-film-image-wrapper">
                           {film.actors.slice(0, 4).map((actor) => (
                             <img
                               key={actor.id}

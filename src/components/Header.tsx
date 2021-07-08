@@ -15,13 +15,13 @@ const Header = ({
 
   return (
     <>
-      <div className="background-line">
+      <div className="header-background-line">
         <div className="main-container">
-          <header className="header-container ">
-            <div className="logo">
+          <header className="header-container">
+            <div className="header-logo">
               <Link to="/" className="navbar-logo">
                 <GiFilmSpool className="navbar-icon" />
-                <h4 className="nav-title">
+                <h4 className="navbar-title">
                   Rate<span className="highlight">Film</span>
                 </h4>
               </Link>
@@ -36,14 +36,14 @@ const Header = ({
                 </li>
                 <li>
                   <button
-                    className="btn btn-color"
+                    className="btn btn-primary"
                     onClick={handleShowSignUpWindow}
                   >
                     Sign Up
                   </button>
                 </li>
                 <li>
-                  <button className="btn btn-color" onClick={handleShow}>
+                  <button className="btn btn-primary" onClick={handleShow}>
                     Log In
                   </button>
                 </li>

@@ -1,6 +1,6 @@
 import React from "react";
 import { FiThumbsUp } from "react-icons/fi";
-import "./Votes.css";
+import "./Votes.scss";
 
 const Votes = () => {
   return (

@@ -3,37 +3,60 @@
 .film-page-container {
     display: flex;
     margin-top: 60px;
+
+    .film-page-poster-wrapper {
+        flex-basis: auto;
+        position: relative;
+
+        .film-page-poster {
+            width: 30vh;
+        }
+    }
+
+    .film-page-content {
+        flex-grow: 1;
+        overflow: hidden;
+        margin-left: 50px;
+
+        .film-page-title {
+            font-size: 34px;
+            font-weight: 700;
+            color: $title-color;
+            line-height: 24px;
+            margin-bottom: 5px;
+        }
+
+        .film-page-country {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .film-page-description {
+            margin-bottom: 30px;
+        }
+
+        .film-page-image-wrapper{
+            display: flex;
+            padding: 10px;
+            
+        }
+        
+
+    }
+
+
 }
 
-.page-film-poster-wrapper {
-    flex-basis: auto;
-    position: relative;
-}
 
-.page-film-poster {
-    width: 30vh;
-}
 
-.page-film-content {
-    flex-grow: 1;
-    overflow: hidden;
-    margin-left: 50px;
-}
 
-.page-film-title {
-    font-size: 34px;
-    font-weight: bold;
-    color: $title-color;
-    line-height: 24px;
-    margin-bottom: 5px;
-}
 
-.page-film-country {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
 
-.film-page-description {
-    margin-bottom: 30px;
-}
+
+
+
+
+
+
+
 

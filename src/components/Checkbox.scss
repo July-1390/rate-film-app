@@ -2,13 +2,14 @@
 
 .checkbox-container {
     vertical-align: middle;
+
+    .checkbox-style {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: $main-color;
+        border-radius: 3px;
+        transition: all 150ms;
+    }
 }
 
-.styled-checkbox {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    background: $main-color;
-    border-radius: 3px;
-    transition: all 150ms;
-}

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { createUser } from "../apiServices";
-import "./SignUp.css";
+import "./ModalStyles.scss";
 
 const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
   const [values, setValues] = useState({
@@ -49,16 +49,16 @@ const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
 
   return (
     <>
-      <div className="signup-modal-background" role="dialog" aria-modal="true">
-        <div className="signup-modal-content">
-          <div className="signup-modal-header">
-            <h3 className="signup-modal-title">SIGN UP FOR RATE FILM</h3>
+      <div className="modal-background" role="dialog" aria-modal="true">
+        <div className="modal-content height">
+          <div className="modal-header">
+            <h3 className="modal-title">SIGN UP FOR RATE FILM</h3>
             <button
-              className="signup-modal-close-btn"
+              className="modal-close-btn"
               onClick={handleCloseSignUp}
             ></button>
           </div>
-          <div className="signup-form-body">
+          <div className="form-body">
             <form>
               <ul>
                 <li className="form-group">
@@ -117,8 +117,8 @@ const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
               </ul>
             </form>
           </div>
-          <footer className="signup-modal-footer">
-            <p className="signup-modal-footer-paragraph">
+          <footer className="modal-footer">
+            <p className="modal-footer-paragraph">
               Already have an account?
               <button className="signup-footer-link">LOG IN HERE</button>
             </p>

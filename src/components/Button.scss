@@ -17,9 +17,7 @@
 }
 
 .btn-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     text-decoration: none;
     padding: 8px 16px;
     height: 100%;

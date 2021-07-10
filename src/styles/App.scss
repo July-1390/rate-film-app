@@ -24,6 +24,26 @@ $btn-color: #f9c64e;
     font-weight: 700;
 }
 
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin basic-title {
+  font-size: 2.125rem;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+@mixin basic-text {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 19px;
+}
+
+
+//  Basic Styles
 
 *, *::before, *::after {
   box-sizing: border-box;

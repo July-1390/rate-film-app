@@ -9,12 +9,10 @@
         justify-content: space-between;
     }
         .header-container {
-            display: flex;
+            @include flex-center;
             flex-direction: row;
             max-height: 80px;
             padding: 10px;
-            align-items: center;
-            justify-content: center;
             background: $main-color;
 
             @media screen and (min-width: 960px)  {

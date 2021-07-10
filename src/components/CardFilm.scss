@@ -27,9 +27,9 @@
 
             .cards-film-description{
                 .cards-film-title {
+                    @include basic-title;
                     color: $text-color;
-                    font-size: 32px;
-                    font-weight: 700;
+                    margin-bottom: 10px;
                     transition: color .2s;
                 
                     &:hover {
@@ -39,17 +39,19 @@
 
                 .cards-film-translate-name {
                     color: $undertone-text-color;
-                    font-size: 16px;
+                    @include basic-text;
                     margin-bottom: 20px;
                 }
 
                 .cards-film-country {
                     color: $text-color;
+                    @include basic-text;
                     margin-bottom: 20px;
                 }
 
                 .cards-film-director {
                     color: $text-color;
+                    @include basic-text;
 
                     .director {
                         color: $undertone-text-color;
@@ -59,7 +61,8 @@
             }
 
             .cards-film-name-title {
-                color: $text-color;               
+                color: $text-color;
+                @include basic-text;               
             }
 
             .cards-film-image-wrapper {

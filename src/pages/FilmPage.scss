@@ -19,19 +19,19 @@
         margin-left: 50px;
 
         .film-page-title {
-            font-size: 34px;
-            font-weight: 700;
+            @include basic-title;
             color: $title-color;
-            line-height: 24px;
             margin-bottom: 5px;
         }
 
         .film-page-country {
+            @include basic-text;
             margin-top: 20px;
             margin-bottom: 20px;
         }
 
         .film-page-description {
+            @include basic-text;
             margin-bottom: 30px;
         }
 
@@ -41,10 +41,7 @@
             
         }
         
-
     }
-
-
 }
 
 

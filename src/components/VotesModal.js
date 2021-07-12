@@ -1,9 +1,9 @@
 import React from "react";
 
-// const VotesModal = ({ setIsModalVotesVisible }) => {
-//   const handleCloseVotesModal = () => setIsModalVotesVisible(false);
+const VotesModal = ({ setIsModalVotesVisible }) => {
+  const handleCloseVotesModal = () => setIsModalVotesVisible(false);
 
-//   return <></>;
-// };
+  return <></>;
+};
 
-// export default VotesModal;
+export default VotesModal;

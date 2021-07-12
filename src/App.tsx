@@ -11,7 +11,6 @@ import SignUpWindow from "./components/SignUp";
 function App() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isSignUpWindowVisible, setIsSignUpWindowVisible] = useState(false);
-  // const [isModalVotesVisible, setIsModalVotesVisible] = useState(false);
 
   return (
     <Router>

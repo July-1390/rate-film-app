@@ -10,37 +10,28 @@ const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
     password: "",
   });
   const [submitted, setSubmitted] = useState(false);
-
-  // const [users, setUsers] = useState([])
-  // const [formData, setFormData] = useState('')
-
-  // const createUser = () => {
-  //   const body = {
-  //     username: values.userName,
-  //     email: values.email,
-  //     password: values.password,
-  //   };
-  //   fetch("http://rfilm.mswan.ru/api/v1/users", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(body),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((result) => console.log(result))
-  //     .catch((err) => console.log("ERROR"));
-  // };
+  const [formError, setFormError] = useState("");
 
   const handleCloseSignUp = () => setIsSignUpWindowVisible(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFormError("");
 
     createUser(values.userName, values.email, values.password).then((res) => {
-      if (res.detail?.error_code) {
-        console.log("ERROR", res.detail?.error_code);
+      if (res.statusCode !== 200) {
+        switch (res.data.detail?.error_code) {
+          case 100:
+            setFormError("Username already taken.");
+            break;
+          case 101:
+            setFormError("Email already taken.");
+            break;
+          default:
+            break;
+        }
       } else {
+        console.log(res.data);
         setIsSignUpWindowVisible(false);
       }
     });
@@ -102,14 +93,17 @@ const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
                     }
                   />
                 </li>
-                {submitted && !values.password ? (
-                  <span>Forgot your password???</span>
-                ) : null}
+
+                {submitted && formError ? <span>{formError}</span> : null}
+
                 <li className="form-group">
                   <button
                     className="login-submit-btn"
                     type="submit"
                     onClick={handleSubmit}
+                    disabled={
+                      !values.userName || !values.email || !values.password
+                    }
                   >
                     CREATE YOUR ACCOUNT
                   </button>

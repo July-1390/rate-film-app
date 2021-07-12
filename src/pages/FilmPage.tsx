@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import { useParams, Link } from "react-router-dom";
 
-import { getFilm } from "../apiServices";
+import { getFilm, ApiResponse } from "../apiServices";
 import { Film } from "../interfaces/film";
 import Button from "../components/Button";
 import "./FilmPage.scss";
@@ -9,7 +9,9 @@ import "./FilmPage.scss";
 const FilmPage = () => {
   const { id }: { id: any } = useParams();
 
-  const { isLoading, data } = useQuery<Film>("film", () => getFilm(id));
+  const { isLoading, data } = useQuery<ApiResponse<Film>>("film", () =>
+    getFilm(id)
+  );
 
   return (
     <div>
@@ -21,24 +23,24 @@ const FilmPage = () => {
           <div className="film-page-poster-wrapper">
             <img
               className="film-page-poster"
-              src={data.poster_url}
+              src={data.data.poster_url}
               alt="film poster"
             />
           </div>
           <div className="film-page-content">
-            <h2 className="film-page-title">{data.title}</h2>
+            <h2 className="film-page-title">{data.data.title}</h2>
             <h3>
-              {data.title_ru}, {data.release_year}
+              {data.data.title_ru}, {data.data.release_year}
             </h3>
             <p className="film-page-country">
-              {data.country}, {data.genre}
+              {data.data.country}, {data.data.genre}
             </p>
-            <p className="film-page-description">{data.description}</p>
+            <p className="film-page-description">{data.data.description}</p>
 
             <div>
               <p>Actors:</p>
               <div className="film-page-image-wrapper">
-                {data.actors.map((actor) => (
+                {data.data.actors.map((actor) => (
                   <img
                     key={actor.id}
                     className="img-actors"

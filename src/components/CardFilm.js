@@ -13,8 +13,8 @@ const CardFilm = ({ genres }) => {
 
   useEffect(() => {
     setIsLoading(true);
-    loadFilms(genres).then((films) => {
-      setFilms(films);
+    loadFilms(genres).then((response) => {
+      setFilms(response.data);
       setIsLoading(false);
     });
   }, [genres]);

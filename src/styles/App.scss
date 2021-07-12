@@ -1,0 +1,156 @@
+
+//Variables Colors
+
+$main-color: #98b4d4;
+$white: #ffffff;
+$black: #000;
+$grey: #aaa;
+
+$title-color: #536273;
+$title-hover: #739b79;
+$text-color: #262626;
+$undertone-text-color: #808080;
+
+$btn-color: #f9c64e;
+
+//Mixins
+
+@mixin btn-style {
+    padding: 12px 20px;
+    border-radius: 4px;
+    outline: none;
+    border: 2px solid $btn-color;
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin basic-title {
+  font-size: 2.125rem;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+@mixin basic-text {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 19px;
+}
+
+
+//  Basic Styles
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+ul[class], ol[class] {
+  padding: 0;
+}
+
+body, h1, h2, h3, h4, p, ul[class], ol[class], li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+ul[class], ol[class], li[class] {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+nav {
+  align-self: center;
+  margin: 0 0.8em 0 0;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 40px;
+  height: 19px;
+  border: 1px solid $grey;
+  border-radius: 2px;
+  background: #ebebeb;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  transition: background 0.3s;
+  box-sizing: border-box;
+  outline: none;
+}
+
+input[type="checkbox"]:after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 16px;
+  height: 19px;
+  background: white;
+  border: 1px solid $grey;
+  border-radius: 2px;
+  transition: left 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+input[type="checkbox"]:checked {
+  background: $main-color;
+  border-color: #8daee5;
+}
+
+input[type="checkbox"]:checked:after {
+  left: 23px;
+  border-color: #8daee5;
+}
+
+label {
+  margin-left: 10px;
+  color: $grey;
+}
+
+input[type="checkbox"]:checked+label {
+  color: $text-color;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 1300px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.img-actors {
+  height: 90px;
+      object-fit: cover;
+      border-radius: 50%;
+      padding: 5px;
+      width: 90px;
+}

@@ -1,5 +1,5 @@
 import Select from "react-select";
-import "./MySelect.css";
+import "./MySelect.scss";
 
 const options = [
   { value: "action", label: "Action" },
@@ -31,7 +31,6 @@ const MySelect = ({ setSelectedGenres }) => {
         </label>
       </div>
       <Select
-        // value={selectedValue}
         options={options}
         isMulti
         className="basic-multi-select"

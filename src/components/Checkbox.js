@@ -1,10 +1,10 @@
 import React from "react";
-import "./Checkbox.css";
+import "./Checkbox.scss";
 
 const Checkbox = () => {
   return (
-    <div className="container">
-      <div className="styled-checkbox">
+    <div className="checkbox-container">
+      <div className="checkbox-style">
         <label>most popular</label>
         <input type="checkbox" />
       </div>

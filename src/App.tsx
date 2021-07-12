@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./styles/App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from "./components/Header";
@@ -27,7 +27,7 @@ function App() {
         setIsModalVisible={setIsModalVisible}
         setIsSignUpWindowVisible={setIsSignUpWindowVisible}
       />
-      <div className="container">
+      <div className="main-container">
         <Switch>
           <Route path="/films/:id">
             <FilmPage />

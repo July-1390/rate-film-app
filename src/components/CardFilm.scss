@@ -1,0 +1,89 @@
+@import '../styles/App.scss';
+
+
+.cards-film-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    padding-right: 50px;
+    padding-left: 50px;
+
+
+    .cards-film {
+        display: grid;
+        grid-template-columns: 0.7fr 1.3fr;
+        grid-template-rows: 1fr;
+        gap: 0px 35px;
+        margin: 20px 20px;
+
+        .cards-film-poster {
+            width: 300px;
+        }
+
+        .cards-film-content{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, 1fr);
+
+            .cards-film-description{
+                .cards-film-title {
+                    @include basic-title;
+                    color: $text-color;
+                    margin-bottom: 10px;
+                    transition: color .2s;
+                
+                    &:hover {
+                        color: $title-hover;
+                    }
+                }
+
+                .cards-film-translate-name {
+                    color: $undertone-text-color;
+                    @include basic-text;
+                    margin-bottom: 20px;
+                }
+
+                .cards-film-country {
+                    color: $text-color;
+                    @include basic-text;
+                    margin-bottom: 20px;
+                }
+
+                .cards-film-director {
+                    color: $text-color;
+                    @include basic-text;
+
+                    .director {
+                        color: $undertone-text-color;
+                    }
+                }
+
+            }
+
+            .cards-film-name-title {
+                color: $text-color;
+                @include basic-text;               
+            }
+
+            .cards-film-image-wrapper {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: 10px 0px;
+                padding: 10px;
+
+                // .img-actors {
+                //     height: 90px;
+                //     object-fit: cover;
+                //     border-radius: 50%;
+                //     padding: 5px;
+                //     width: 90px;
+                // }
+            }
+            
+
+
+        }
+        
+    }
+}

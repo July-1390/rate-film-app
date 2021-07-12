@@ -1,0 +1,65 @@
+@import '../styles/App.scss';
+
+.header-background-line {
+    background-color: $main-color;
+
+    .main-container {
+
+    @media screen and (min-width: 960px) {
+        justify-content: space-between;
+    }
+        .header-container {
+            @include flex-center;
+            flex-direction: row;
+            max-height: 80px;
+            padding: 10px;
+            background: $main-color;
+
+            @media screen and (min-width: 960px)  {
+                    justify-content: space-between;
+            }
+
+            @media screen and (min-width: 600px)  {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+        .header-logo {
+            @media screen and (min-width: 600px) {
+                margin-left: 2.3em;
+            }
+
+            .navbar-logo {
+                color: $btn-color;
+                justify-self: start;
+                cursor: pointer;
+                text-decoration: none;
+                font-size: 2rem;
+                display: flex;
+                align-items: center;
+    
+                .navbar-icon {
+                    margin-right: 0.5rem;
+                }
+    
+                .navbar-title {
+                    color: $text-color;
+                    font-size: 1.5rem;
+    
+                    .highlight {
+                        color: $btn-color;
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+
+            .main-nav ul li {
+                display: inline-block;
+                padding: 0 1.4em 0 0;
+                font-size: 0.9em;
+            }
+
+            }
+        }
+    }

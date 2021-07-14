@@ -98,7 +98,11 @@ const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
 
                 <li className="form-group">
                   <button
-                    className="login-submit-btn"
+                    className={`login-submit-btn ${
+                      !values.userName || !values.email || !values.password
+                        ? "btn-disabled"
+                        : ""
+                    }`}
                     type="submit"
                     onClick={handleSubmit}
                     disabled={

@@ -97,11 +97,25 @@
                     border: 2px solid $main-color;
                     border-radius: 5px;
 
-                    &:hover {
+                    &:not(.btn-disabled):hover {
                         background-color: $white;
                         border: 2px solid $main-color;
                         color: $text-color;
                     }
+                }
+
+                .btn-disabled {
+                    width: 85%;
+                    padding: 15px 0;
+                    margin-left: 7.5%;
+                    margin-top: 15px;
+                    text-align: center;
+                    appearance: none;
+                    background-color: $grey;
+                    color: $white;
+                    font-weight: 700;
+                    border: 2px solid $grey;
+                    border-radius: 5px;
                 }
             }
         }

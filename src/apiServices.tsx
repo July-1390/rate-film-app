@@ -6,7 +6,6 @@ const baseUrl = "https://rfilm.mswan.ru/api/v1";
 export interface ApiResponse<T> {
   statusCode: number;
   data: T;
-  errors?: any;
 }
 
 export const loadFilms = async (

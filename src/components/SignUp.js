@@ -3,39 +3,47 @@ import { Link } from "react-router-dom";
 import { createUser } from "../apiServices";
 import "./ModalStyles.scss";
 
+const defaultFormErrors = {
+  username: null,
+  email: null,
+  password: null,
+};
+
 const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
   const [values, setValues] = useState({
-    userName: "",
+    username: "",
     email: "",
     password: "",
   });
+
   const [submitted, setSubmitted] = useState(false);
-  const [formError, setFormError] = useState("");
+  const [formErrors, setFormErrors] = useState(defaultFormErrors);
 
   const handleCloseSignUp = () => setIsSignUpWindowVisible(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormError("");
+    setFormErrors(defaultFormErrors);
 
-    createUser(values.userName, values.email, values.password).then((res) => {
-      if (res.statusCode !== 200) {
-        switch (res.data.detail?.error_code) {
-          case 100:
-            setFormError("Username already taken.");
-            break;
-          case 101:
-            setFormError("Email already taken.");
-            break;
-          default:
-            break;
-        }
-      } else {
-        console.log(res.data);
+    createUser(values.username, values.email, values.password).then((res) => {
+      if (res.statusCode === 200) {
         setIsSignUpWindowVisible(false);
       }
+
+      if (res.statusCode >= 400 && res.statusCode < 500) {
+        const newErrors = {
+          ...defaultFormErrors,
+        };
+
+        for (const error of res.data.detail) {
+          const field = error.loc.slice(-1)[0];
+          newErrors[field] = error.msg;
+        }
+
+        setFormErrors(newErrors);
+      }
+      setSubmitted(true);
     });
-    setSubmitted(true);
   };
 
   return (
@@ -55,20 +63,25 @@ const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
                 <li className="form-group">
                   <label className="form-label">Your name on the website</label>
                   <input
-                    className="form-field"
+                    className={`form-field ${
+                      formErrors.username ? "form-field-error" : ""
+                    }`}
                     type="text"
-                    name="userName"
+                    name="username"
                     placeholder="Jonny"
-                    value={values.userName}
+                    value={values.username}
                     onChange={(e) =>
-                      setValues({ ...values, userName: e.target.value })
+                      setValues({ ...values, username: e.target.value })
                     }
                   />
+                  <p className="msg-error">{formErrors.username}</p>
                 </li>
                 <li className="form-group">
                   <label className="form-label">Email address</label>
                   <input
-                    className="form-field"
+                    className={`form-field ${
+                      formErrors.email ? "form-field-error" : ""
+                    }`}
                     type="email"
                     autoComplete="on"
                     name="email"
@@ -78,12 +91,15 @@ const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
                       setValues({ ...values, email: e.target.value })
                     }
                   />
+                  <p className="msg-error">{formErrors.email}</p>
                 </li>
 
                 <li className="form-group">
                   <label className="form-label">Password</label>
                   <input
-                    className="form-field"
+                    className={`form-field ${
+                      formErrors.password ? "form-field-error" : ""
+                    }`}
                     type="password"
                     autoComplete="on"
                     name="password"
@@ -92,21 +108,20 @@ const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
                       setValues({ ...values, password: e.target.value })
                     }
                   />
+                  <p className="msg-error">{formErrors.password}</p>
                 </li>
-
-                {submitted && formError ? <span>{formError}</span> : null}
 
                 <li className="form-group">
                   <button
                     className={`login-submit-btn ${
-                      !values.userName || !values.email || !values.password
+                      !values.username || !values.email || !values.password
                         ? "btn-disabled"
                         : ""
                     }`}
                     type="submit"
                     onClick={handleSubmit}
                     disabled={
-                      !values.userName || !values.email || !values.password
+                      !values.username || !values.email || !values.password
                     }
                   >
                     CREATE YOUR ACCOUNT

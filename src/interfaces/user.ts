@@ -5,10 +5,11 @@ export interface User {
 }
 
 export interface ErrorDetail {
-    error_code: number
-    error_text: string
+    loc: string[]
+    msg: string
+    type: string
 }
 
 export interface UserCreateErrorResponse {
-    detail: ErrorDetail
+    detail: ErrorDetail[]
 }

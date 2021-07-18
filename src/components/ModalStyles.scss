@@ -84,6 +84,16 @@
                     outline: none;
                 }
 
+                .form-field-error {
+                    border: 1px solid rgb(255, 0, 0);
+                }
+
+                .msg-error {
+                    font-size: 12px;
+                    color: #7c7979;
+                    margin-top: 5px;
+                }
+
                 .login-submit-btn {
                     width: 85%;
                     padding: 15px 0;

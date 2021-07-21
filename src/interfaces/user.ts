@@ -13,3 +13,8 @@ export interface ErrorDetail {
 export interface UserCreateErrorResponse {
     detail: ErrorDetail[]
 }
+
+export interface AccessToken {
+    access_token: string,
+    token_type: string
+}

@@ -36,6 +36,8 @@ const CardFilm = ({ genres }) => {
                         src={film.poster_url}
                         alt="poster film"
                       />
+
+                      <Votes />
                     </div>
                     <div className="cards-film-content">
                       <div className="cards-film-description">
@@ -67,9 +69,9 @@ const CardFilm = ({ genres }) => {
                       </div>
                     </div>
 
-                    <div>
+                    {/* <div>
                       <Votes />
-                    </div>
+                    </div> */}
                   </div>
                 </Link>
               </div>

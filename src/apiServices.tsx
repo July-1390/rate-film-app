@@ -1,5 +1,5 @@
 import { Film } from "./interfaces/film";
-import { User, UserCreateErrorResponse } from "./interfaces/user";
+import { User, UserCreateErrorResponse, AccessToken } from "./interfaces/user";
 
 const baseUrl = "https://rfilm.mswan.ru/api/v1";
 
@@ -66,5 +66,28 @@ export const createUser = async (
   return {
     statusCode: response.status,
     data: userOrError,
+  };
+};
+
+export const loginUser = async (
+  username: string,
+  password: string
+): Promise<ApiResponse<AccessToken>> => {
+  const url = `${baseUrl}/users/token`;
+
+  let formData = new FormData();
+  formData.append("username", username);
+  formData.append("password", password);
+
+  const response = await fetch(url, {
+    body: formData,
+    method: "post",
+  });
+
+  const userToken = (await response.json()) as AccessToken;
+
+  return {
+    statusCode: response.status,
+    data: userToken,
   };
 };

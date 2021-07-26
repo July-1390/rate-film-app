@@ -121,10 +121,11 @@
                     margin-top: 15px;
                     text-align: center;
                     appearance: none;
-                    background-color: $grey;
+                    background-color: #bcbdbe;
                     color: $white;
                     font-weight: 700;
-                    border: 2px solid $grey;
+                    cursor: not-allowed;
+                    border: 2px solid #bcbdbe;
                     border-radius: 5px;
                 }
             }

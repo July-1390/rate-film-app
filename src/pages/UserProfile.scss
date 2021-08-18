@@ -1,0 +1,141 @@
+@import '../styles/App.scss';
+
+
+
+.profile-header-section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+
+    .profile-title-section-header {
+        position: relative;
+        padding: 0 20px;
+
+        h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: $title-color;
+            font-weight: bold;
+            padding-right: 180px; 
+        }
+    }
+}
+
+.row {
+    
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .left-column {
+        float: left;
+        width: 25%;
+
+        @media (max-width: 800px) {
+            width: 100%;
+            padding: 0;
+        }
+
+
+        .panel-widget {
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 2px;
+            border-bottom: 1pz solid #e5e5e5;
+
+            .panel-body {
+                padding: 15px 25px 25px;
+                position: relative;
+
+                .text-center {
+                    text-align: center;
+                }
+
+                .info-parent {
+                    position: relative;
+                    padding: 7px 7px;
+                }
+
+                .user-name{
+                    font-weight: 500;
+                    font-size: 1.25rem;
+                    margin-bottom: 10px;
+                    padding: 7px 7px;
+                }
+            }
+        }
+    }
+
+    .right-column {
+        float: left;
+        width: 75%;
+        padding-left: 20px;
+        margin-top: 27px;
+
+        @media (max-width: 800px) {
+            width: 100%;
+            padding: 0;
+        }
+
+    .profile-tab-menu {
+        display: block;
+
+        .nav-user-profile{
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+            
+
+            li {
+                float: left;
+                margin-left: 10px;
+
+                .profile-links {
+                    color: $text-color;
+                    padding: 7px 15px;
+                    border: 1px solid #dddd;
+                    border-radius: 6px;
+
+                    &:hover {
+                        background-color: $title-hover;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    .pd-20 {
+        padding: 20px;
+        display: block;
+
+        .panel-body {
+            clear: both;
+            overflow: hidden;
+            
+
+            .rating-user-review {
+                border-bottom: 1px solid #f3f3f3;
+                padding: 10px 0;
+    
+                .user-rating {
+                    border-bottom-width: 0;
+    
+                    .rating-poster {
+                        max-width: 52px;
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+    }
+
+    @media (min-width: 768px) {
+        width: 75%;
+        float: left;
+    }
+}
+

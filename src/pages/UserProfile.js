@@ -6,31 +6,26 @@ import "./UserProfile.scss";
 const UserProfile = () => {
   return (
     <>
-      <div className="main-container">
+      <div className="wrapper">
         <div className="profile-header-section">
-          <div className="profile-title-section-header">
             <h1>User Profile Page</h1>
-          </div>
         </div>
         <div className="row">
           <div className="left-column">
             <div className="panel-widget">
-              <div className="panel-body">
-                <div className="text-center info-parent">
+                <div className="text-center">
                   <img
                     alt="user-avatar"
                     src="https://images.fandango.com/cms/assets/a2f0b9d0-cf84-11eb-a507-3be98bb99253--actordefaulttmb.gif"
                   />
                 </div>
-                <h2 className="user-name">User Name</h2>
-              </div>
+                <h2 className="user-name">User Names</h2>
             </div>
           </div>
 
           <div className="right-column">
-            <div>
-              <nav className="profile-tab-menu">
-                <ul className="nav-user-profile">
+            <div className='nav-user-profile'>
+              <ul>
                   <li>
                     <Link className="profile-links" to="/">
                       Movie Ratings
@@ -46,8 +41,7 @@ const UserProfile = () => {
                       Manage account
                     </Link>
                   </li>
-                </ul>
-              </nav>
+              </ul>
               <div className="pd-20">
                 <div className="panel-body">
                   <ul>
@@ -67,29 +61,6 @@ const UserProfile = () => {
             </div>
           </div>
         </div>
-        {/* <div className="col-left">
-          <section className="panel">
-            <div className="panel-body">
-              <div className="col-xs-9">
-                <a href="/profile">
-                  <img
-                    src="https://images.fandango.com/cms/assets/a2f0b9d0-cf84-11eb-a507-3be98bb99253--actordefaulttmb.gif"
-                    width="100"
-                    alt="user"
-                  />
-                </a>
-              </div>
-              <div className="col-xs-15">
-                <h1 className="profile-name">Tom West</h1>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div className="col-right">
-          <section className="panel">
-            <h2 className="panel-heading">rating history</h2>
-          </section>
-        </div> */}
       </div>
     </>
   );

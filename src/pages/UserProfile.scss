@@ -100,6 +100,12 @@
                                 max-width: 52px;
                                 height: auto;
                             }
+
+                            .rating-review-top {
+                                display: inline-block;
+                                vertical-align: top;
+                                width: calc(100% - 60px);
+                            }
                         }
                     }
                 }

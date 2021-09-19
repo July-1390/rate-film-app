@@ -1,121 +1,139 @@
 @import '../styles/App.scss';
 
 
-.wrapper {
-    display: flex; 
-    flex-flow: row wrap;
+.profile-container {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 0.4fr 1.2fr 1.4fr; 
+    gap: 0px 0px; 
 
-    & > * {
-        padding: 10px;
-        flex: 1 100%;
+      .profile-header-section {
+        display: grid; 
+        grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-rows: 1fr 1fr 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+          ". . ."
+          "title title title"
+          ". . ."; 
+        grid-area: 1 / 1 / 2 / 4; 
+
+          .title {
+            grid-area: title;
+            border-bottom: 1px solid #eee;
+          }
       }
 
-    .profile-header-section {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #e5e5e5;
-        .profile-title-section-header {
-            padding: 0 20px;
-            h1 {
-                font-size: 1.5rem;
-                color: $title-color;
-                font-weight: bold;
+    .left-column {
+      grid-area: 2 / 1 / 4 / 2;
+
+      .avatar-widget{
+        grid-area: avatar;
+        width: 90px;
+      }
+      .user-name {
+        grid-area: user-name;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+
+    .right-column {
+      grid-area: 2 / 2 / 4 / 4;
+
+      .nav-user-profile {
+        display: grid;  
+        grid-template-rows: 1.6fr 0 0; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+          "navigation navigation navigation"
+          ". . ."
+          ". . ."; 
+        grid-area: 2 / 2 / 3 / 4; 
+
+        .navigation {
+          display: inline-flex;  
+          grid-area: navigation; 
+
+          .tabs {
+            color: $text-color;
+            padding: 7px 15px;
+            border: 1px solid #dddd;
+            margin-right: 20px;
+            border-radius: 6px;
+            background-color: $white;
+            font-size: 15px;
+
+              &:hover {
+                background-color: $title-hover;
+                color: $white;
+              }
+          }
+
+          .active-tabs {
+            background: $title-hover;
+            color: $white;
+          }
+        }
+      }
+
+    .content-tabs {
+      display: grid; 
+      grid-template-rows: 1fr; 
+      gap: 0px 0px; 
+      grid-area: 3 / 2 / 4 / 4; 
+      margin-top: 40px;
+
+      .content-film {
+        display: none; 
+
+        .one-film { 
+          display: flex; 
+          border-bottom: 1px solid #eee;
+          padding: 24px 20px;
+          border-radius: 8px;
+          transition-duration: 0.15s;
+          transition-timing-function: ease-out;
+
+            &:hover {
+              background: rgba(0,0,0,0.07);
+              transition: opacity 0.15s ease-out;
+            }
+
+    
+            .rating-poster {
+              margin-right: 30px;
+              width: 64px;
+              grid-area: poster;
+            }
+
+            .name-of-film {
+              font-weight: 500;
+              margin-right: 40px;
+              grid-area: name-of-film;
+
+                .translate-name {
+                  font-weight: 400;
+                  font-size: 13px;
+                  color: #333;
+                }
+
+                .genre-of-the-film {
+                  font-size: 13px;
+                  color: #777;
+                }
+            }
+
+            .rating-stars {
+              grid-area: stars;
+              color: $btn-color;
             }
         }
     }
-    
-    .row {
-        display: flex;
-        flex-direction: row;
-        &:after {
-            content: '';
-            display: table;
-            clear: both;
-        }
-        .left-column {
-            float: left;
-            width: 25%;
-            @media (max-width: 800px) {
-                width: 100%;
-                padding: 0;
-            }
-            .panel-widget {
-                margin-bottom: 20px;
-                margin-top: 10px;
-                padding: 15px;
-                
-                    .text-center {
-                        text-align: center;
-                    }
-                    .user-name {
-                        font-weight: 500;
-                        font-size: 1.10rem;
-                    }
-            }
-        }
-        .right-column {
-            float: left;
-            width: 75%;
-            padding: 15px;
-    
-            @media (max-width: 800px) {
-                width: 100%;
-                padding: 0;
-            }
-            
-                .nav-user-profile {
-                    padding-left: 0;
-                    margin-bottom: 0;
-    
-                    ul {
-                        list-style: none;
-                        li {
-                            float: left;
-                            margin-left: 10px;
-                            .profile-links {
-                                color: $text-color;
-                                padding: 7px 15px;
-                                border: 1px solid #dddd;
-                                border-radius: 6px;
-                                &:hover {
-                                    background-color: $title-hover;
-                                    color: white;
-                                }
-                            }
-                        }
-                    }
-                }
-            .pd-20 {
-                padding: 20px 0;
-                display: block;
-                .panel-body {
-                    clear: both;
-                    overflow: hidden;
-                    margin-top: 20px;
-                    .rating-user-review {
-                        padding: 10px 0;
-                        .user-rating {
-                            border-bottom-width: 0;
-                            .rating-poster {
-                                max-width: 52px;
-                                height: auto;
-                            }
 
-                            .rating-review-top {
-                                display: inline-block;
-                                vertical-align: top;
-                                width: calc(100% - 60px);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        @media (min-width: 768px) {
-            width: 75%;
-            float: left;
-        }
+    .active-content {
+      display: block;
     }
-
+      }
+    }
 }
-

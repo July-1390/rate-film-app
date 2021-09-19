@@ -122,10 +122,7 @@ const UserProfile = () => {
                   : "content-film"
               }
             >
-              <h2>Content 3</h2>
-              <p>Lorem ipsum dolor sit amet, consectet</p>
               <AccountSettings />
-              
             </div>
           </div>
         </div>

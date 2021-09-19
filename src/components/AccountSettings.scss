@@ -1,9 +1,57 @@
 @import '../styles/App.scss';
 
 .wrapper {
-    padding: 30px 50px;
+    padding: 30px 0;
 
     .user-account-header {
+        padding-bottom: 20px;
         font-weight: 400;
+        border-bottom: 1px solid #eee;
+    }
+
+    // .inner-profile-photo {
+    //     display: flex;
+    //     align-items: start;
+    //     padding: 30px;
+    //     border-bottom: 1px solid #eee;
+
+    //     .img-profile {
+    //         width: 70px;
+    //         height: 70px;
+    //         border-radius: 6px;
+    //         object-fit: cover;
+    //     }
+    // }
+
+    // .inner-img-section {
+    //     padding-left: 20px;
+
+    //     p {
+    //         font-size: 12px;
+    //         color: #777;
+    //         margin-bottom: 10px;
+    //         text-align: justify;
+    //     }
+
+    //     b {
+    //         font-size: 14px
+    //     }
+
+    //     .button {
+    //         font-weight: 400;
+    //     }
+    // }
+    .inner-form-body {
+        padding-top: 16px;
+
+        .account-form-label {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 15px;
+            margin-left: 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: $text-color;
+        }
     }
 }

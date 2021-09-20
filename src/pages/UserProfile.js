@@ -1,19 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { RiStarSFill } from "react-icons/ri";
+import { getUser } from "../apiServices";
 import AccountSettings from "../components/AccountSettings";
+import {getUserToken} from "../localStorageUserServices";
 
 import "./UserProfile.scss";
 
 const UserProfile = () => {
   const [toggleState, setToggleState] = useState(1);
 
+  const [user, setUser] = useState();
+  const [userToken, setUserToken]= useState(null)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect (() => {
+    setIsLoading(true)
+    const token = getUserToken()
+    setUserToken(token)
+
+    getUser(token).then(user => {
+      setUser(user.data)
+
+      setIsLoading(false)
+    })
+  }, [])
+
   const toggleTab = (index) => {
     setToggleState(index);
   };
 
+  if (isLoading) {
+    <p>Login required</p>
+  }
+  
   return (
-    <>
+  <> 
+    {!user ? (
+      <p>No user</p>
+    ) : (
+      
       <div className="profile-container">
+        <p>{user.username}</p>
         <div className="profile-header-section">
           <h1 className="title">User Profile Page</h1>
         </div>
@@ -24,7 +51,7 @@ const UserProfile = () => {
               src="https://images.fandango.com/cms/assets/a2f0b9d0-cf84-11eb-a507-3be98bb99253--actordefaulttmb.gif"
             />
           </div>
-          <h2 className="user-name">User Names</h2>
+          <h2 className="user-name">{user.username}</h2>
         </div>
 
         <div className="right-column">
@@ -127,7 +154,8 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
-    </>
+    )}      
+  </>
   );
 };
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { loginUser } from "../apiServices";
+import { saveUserToken, saveUser } from "../localStorageUserServices";
 import "./ModalStyles.scss";
 
 const LogInWindow = ({ setIsModalVisible }) => {
@@ -18,6 +19,7 @@ const LogInWindow = ({ setIsModalVisible }) => {
 
     loginUser(values.username, values.password).then((res) => {
       if (res.statusCode === 200) {
+        saveUserToken(res.data)
         setIsModalVisible(false);
       }
 

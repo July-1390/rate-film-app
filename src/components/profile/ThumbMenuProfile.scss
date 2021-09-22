@@ -1,0 +1,67 @@
+@import '../../styles/App.scss';
+
+.wrapper-thumb-menu {
+    display: inline-flex;
+    align-items: center;
+    padding-top: 7px;
+
+    .thumb-avatar {
+        width: 23%;
+        height: 10%;
+        margin-right: 20px;
+        border-radius: 4px;
+    }
+
+    .thumb-menu-username {
+        font-weight: 600;
+    }
+
+    .dropdown-arrow {
+        font-size: 30px;
+        margin-top: 3px;
+    }    
+}
+
+.list-dropdown-items {
+    background: white;
+    border-radius: 4px;
+    visibility: hidden;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    width: 195px;
+    height: auto;
+    position: absolute;
+    transition: all 0.5s ease;
+    display: none;
+    z-index: 10;
+
+    .dropdown-item {
+        display:inline-block;
+        transition-duration: 0.5s;
+        padding: 1rem;
+        font-size: 14px;
+
+        &:hover {
+            background: #eee;
+            cursor: pointer;
+        }
+
+        .dropdown-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: $undertone-text-color;
+        }
+    }
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+ul li ul li {
+clear: both;
+width: 100%;
+}

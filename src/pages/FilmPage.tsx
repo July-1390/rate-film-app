@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 
 import { getFilm, ApiResponse } from "../apiServices";
 import { Film } from "../interfaces/film";
-import Button from "../components/Button";
+import Button from "../components/buttons/Button";
 import "./FilmPage.scss";
 
 const FilmPage = () => {

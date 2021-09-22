@@ -58,26 +58,26 @@ const Header = ({
             <nav className="main-nav">
               {!user ? (
               <ul className="nav-list">
-              <li>
+              <li className="nav-list-item">
                 <Link to="/" className="btn-link">
                   <Button className="btn-primary">List Of Films</Button>
                 </Link>
               </li>
-              <li>
+              <li className="nav-list-item">
                 <SignUpButton setIsSignUpWindowVisible={setIsSignUpWindowVisible} />
               </li>
-              <li>
+              <li className="nav-list-item">
                 <LogInButton setIsModalVisible={setIsModalVisible} />              
               </li>
             </ul>
             ) : (
               <ul className="nav-list">
-              <li>
+              <li className="nav-list-item">
                 <Link to="/" className="btn-link">
                   <Button className="btn-primary">List Of Films</Button>
                 </Link>
               </li>
-              <li>
+              <li className="nav-list-item">
                 <ThumbMenuProfile user={user}/>
               </li>
             </ul>

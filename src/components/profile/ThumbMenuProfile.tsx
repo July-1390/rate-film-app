@@ -25,7 +25,7 @@ const ThumbMenuProfile = ({user}:{user: User}, {token}:{token: AccessToken}) => 
             </div>
             <ul className='list-dropdown-items'>
                     <li className='dropdown-item'>
-                        <a className='dropdown-link' href='/'>Profile</a>
+                        <Link className='dropdown-link' to='/profile'>Profile</Link>
                     </li>
                     <li className='dropdown-item'>
                         <a className='dropdown-link' onClick={handleLogOut} href='/'>Log out</a>

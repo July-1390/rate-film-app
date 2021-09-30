@@ -44,7 +44,6 @@ const UserProfile = () => {
     ) : (
       
       <div className="profile-container">
-        <p>{user.username}</p>
         <div className="profile-header-section">
           <h1 className="title">User Profile Page</h1>
         </div>

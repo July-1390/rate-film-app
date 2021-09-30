@@ -10,13 +10,17 @@ const UserProfile = () => {
   const [toggleState, setToggleState] = useState(1);
 
   const [user, setUser] = useState();
-  const [userToken, setUserToken]= useState(null)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect (() => {
     setIsLoading(true)
     const token = getUserToken()
-    setUserToken(token)
+
+    if (!token) {
+      setUser(null)
+      setIsLoading(false)
+      return
+    }
 
     getUser(token).then(user => {
       setUser(user.data)

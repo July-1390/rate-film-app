@@ -17,3 +17,10 @@ export const getUserToken = (): AccessToken => {
     const rawToken = localStorage.getItem('userToken')
     return rawToken ?  JSON.parse(rawToken) : null
 }
+
+export const logOutUser = (token: AccessToken) => {
+    const tokenAsString = JSON.stringify(token)
+
+    localStorage.removeItem('userToken')
+}
+

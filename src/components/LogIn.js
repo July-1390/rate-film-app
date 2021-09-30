@@ -1,7 +1,9 @@
 import { useState } from "react";
+import {Link} from 'react-router-dom'
 
 import { loginUser } from "../apiServices";
 import { saveUserToken, saveUser } from "../localStorageUserServices";
+import UserProfile from '../pages/UserProfile';
 import "./ModalStyles.scss";
 
 const LogInWindow = ({ setIsModalVisible }) => {
@@ -84,7 +86,7 @@ const LogInWindow = ({ setIsModalVisible }) => {
                     disabled={!values.username || !values.password}
                   >
                     LOG IN
-                  </button>
+                  </button> 
                 </li>
               </ul>
             </form>

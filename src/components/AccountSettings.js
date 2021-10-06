@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import { Container, Form } from "semantic-ui-react";
 import { TextField } from "./TextField";
-import {FaUserEdit} from 'react-icons/fa'
+import {FaCheckCircle} from 'react-icons/fa'
+// import { BsFillCheckCircleFill } from "react-icons/bs";
 
 import './AccountSettings.scss';
 
-const AccountSettings = ({loading, onSave, error}) => {
+const AccountSettings = () => {
 
     //   resolves to new value in 2 sec
       const mockSave = (val) => {
@@ -15,22 +16,23 @@ const AccountSettings = ({loading, onSave, error}) => {
         <>
         <div className="wrapper">
             <h2 className='user-account-header'>Account settings</h2>
-            {/* <div className="inner-profile-photo">
-                <img className="img-profile" src='https://images.fandango.com/cms/assets/a2f0b9d0-cf84-11eb-a507-3be98bb99253--actordefaulttmb.gif' alt />
-
-                <div className="inner-img-section">
-                    <b>Profile Photo</b>
-                    <p>Accepted file type .png. Less than 1MB</p>
-                    <button className="btn button">Upload</button>
-                </div>
-            </div> */}
             <Container>
-                <Form>
+                <Form className="form-account-settings-manage">
+                    <div className="input-container">                   
+                        <TextField
+                            width={8}
+                            icon="user"
+                            label="Username"
+                            placeholder="John Doe"
+                            onSave={mockSave}
+                        />
+                        <FaCheckCircle className="check-icon" />
+                    </div>
+                    
                     <TextField
                         width={8}
                         icon="user"
-                        label="Username"
-                        placeholder="John Doe"
+                        label="Password"
                         onSave={mockSave}
                     />
                 </Form>

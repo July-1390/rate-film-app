@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "semantic-ui-react";
 
+
 export const TextField = ({
   onSave,
   icon,
@@ -16,10 +17,10 @@ export const TextField = ({
   return (
     <React.Fragment>
       <Form.Input
-        icon={{
-          name: saveError ? "warning circle" : saved ? "check circle" : icon,
-          color: saveError ? "red" : saved ? "green" : "grey"
-        }}
+        // icon={{
+        //   name: saveError ? "warning circle" : saved ? "check" : icon,
+        //   color: saveError ? "red" : saved ? "green" : "grey"
+        // }}
         value={value}
         loading={loading || saving}
         disabled={loading || saving}

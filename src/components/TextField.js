@@ -29,8 +29,6 @@ export const TextField = ({
           setSaved(false);
         }}
         onBlur={async e => {
-          console.log(e.target.value);
-          console.log(lastValue);
           const val = e.target.value;
           if (val !== lastValue) {
             setSaving(true);

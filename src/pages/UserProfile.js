@@ -54,7 +54,7 @@ const UserProfile = () => {
               src="https://images.fandango.com/cms/assets/a2f0b9d0-cf84-11eb-a507-3be98bb99253--actordefaulttmb.gif"
             />
           </div>
-          <h2 className="user-name">{user.username}</h2>
+          <h2 className="user-name">{user.display_name} - {user.username}</h2>
         </div>
 
         <div className="right-column">

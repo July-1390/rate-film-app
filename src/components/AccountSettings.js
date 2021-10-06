@@ -1,43 +1,36 @@
 import React, {useState} from 'react'
 import { Container, Form } from "semantic-ui-react";
 import { TextField } from "./TextField";
+import {changeDisplayName} from '../apiServices'
+import {getUserToken} from '../localStorageUserServices'
 import {FaCheckCircle} from 'react-icons/fa'
-// import { BsFillCheckCircleFill } from "react-icons/bs";
 
 import './AccountSettings.scss';
 
 const AccountSettings = () => {
+    const updateDisplayName = (newName) => {
+        changeDisplayName(newName, getUserToken()).then((r) => {})    
+    }
 
-    //   resolves to new value in 2 sec
-      const mockSave = (val) => {
-          new Promise(resolve => setTimeout(() => resolve(val), 2000))
-      }
     return (
         <>
         <div className="wrapper">
             <h2 className='user-account-header'>Account settings</h2>
             <Container>
+                <p>Here you can change some information about your account</p>
                 <Form className="form-account-settings-manage">
                     <div className="input-container">                   
                         <TextField
                             width={8}
                             icon="user"
-                            label="Username"
+                            label="Display name"
                             placeholder="John Doe"
-                            onSave={mockSave}
+                            onSave={updateDisplayName}
                         />
-                        <FaCheckCircle className="check-icon" />
-                    </div>
-                    
-                    <TextField
-                        width={8}
-                        icon="user"
-                        label="Password"
-                        onSave={mockSave}
-                    />
+                        {/* <FaCheckCircle className="check-icon" /> */}
+                    </div>                  
                 </Form>
-            </Container>
-            
+            </Container>  
         </div>
         
         </>

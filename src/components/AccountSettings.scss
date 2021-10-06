@@ -14,9 +14,10 @@
 
         .input-container{
             display: flex;
+            margin-top: 15px;
 
             .check-icon {
-                padding: 10px;
+                position: absolute;
                 min-width: 20px;
                 text-align: center;
                 color: $title-hover;

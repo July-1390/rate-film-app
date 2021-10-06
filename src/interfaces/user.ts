@@ -2,6 +2,7 @@ export interface User {
     username: string
     email: string
     is_enabled: boolean
+    display_name: string
 }
 
 export interface ErrorDetail {

@@ -17,7 +17,7 @@ export const loadFilms = async (
     searchParams.append("genre", genre);
   }
 
-  const url = `${baseUrl}/films/?${searchParams}`;
+  const url = `${baseUrl}/films?${searchParams}`;
 
   const response = await fetch(url);
   const films = (await response.json()) as Film[];
@@ -51,7 +51,7 @@ export const createUser = async (
     password: password,
   };
 
-  const url = `${baseUrl}/users/`;
+  const url = `${baseUrl}/users`;
 
   const response = await fetch(url, {
     method: "POST",
@@ -93,7 +93,7 @@ export const loginUser = async (
 };
 
 export const getUser = async (token: AccessToken): Promise<ApiResponse<User>> => {
-  const url = `${baseUrl}/users/me/`;
+  const url = `${baseUrl}/users/me`;
   const headers = {'Authorization': `Bearer ${token.access_token}`}
 
   const response = await fetch(url, {headers: {'Authorization': `Bearer ${token.access_token}`}});
@@ -104,3 +104,31 @@ export const getUser = async (token: AccessToken): Promise<ApiResponse<User>> =>
     data: user,
   };
 };
+
+export const changeDisplayName = async (
+  displayName: string,
+  token: AccessToken,
+): Promise<ApiResponse<User | UserCreateErrorResponse>> => {
+  const body = {
+    display_name: displayName
+  };
+
+  const url = `${baseUrl}/users/me`;
+
+  const response = await fetch(url, {
+    method: "PATCH",
+    headers: {
+      "Authorization": `Bearer ${token.access_token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+
+  const userOrError = await response.json();
+
+  return {
+    statusCode: response.status,
+    data: userOrError,
+  };
+};
+

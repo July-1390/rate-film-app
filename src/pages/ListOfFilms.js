@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import CardFilm from "../components/CardFilm";
-
 import MySelect from "../components/MySelect";
 
 const ListOfFilms = () => {

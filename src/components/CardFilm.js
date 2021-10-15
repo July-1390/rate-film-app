@@ -27,7 +27,7 @@ const CardFilm = ({ genres }) => {
         <>
           <div className="cards-film-container">
             {films.map((film) => (
-              <div>
+              <>
                 <Link to={`/films/${film.id}`}>
                   <div className="cards-film" key={film.id}>
                     <div className="cards-film-poster">
@@ -39,7 +39,7 @@ const CardFilm = ({ genres }) => {
 
                       <Votes />
                     </div>
-                    <div className="cards-film-content">
+                    <div className="cards-film-content" key={film.title}>
                       <div className="cards-film-description">
                         <h2 className="cards-film-title">{film.title}</h2>
                         <p className="cards-film-translate-name">
@@ -68,13 +68,9 @@ const CardFilm = ({ genres }) => {
                         </div>
                       </div>
                     </div>
-
-                    {/* <div>
-                      <Votes />
-                    </div> */}
                   </div>
                 </Link>
-              </div>
+              </>
             ))}
           </div>
         </>

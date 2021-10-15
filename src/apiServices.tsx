@@ -94,7 +94,7 @@ export const loginUser = async (
 
 export const getUser = async (token: AccessToken): Promise<ApiResponse<User>> => {
   const url = `${baseUrl}/users/me`;
-  const headers = {'Authorization': `Bearer ${token.access_token}`}
+  // const headers = {'Authorization': `Bearer ${token.access_token}`}
 
   const response = await fetch(url, {headers: {'Authorization': `Bearer ${token.access_token}`}});
   const user = (await response.json()) as User;

@@ -1,6 +1,4 @@
-import React, {useState, useEffect} from 'react'
-import {FaUserCheck} from 'react-icons/fa'
-import { getUser } from "../../apiServices";
+
 import {logOutUser} from '../../localStorageUserServices'
 import {Link} from 'react-router-dom'
 import {RiArrowDropDownFill} from 'react-icons/ri'

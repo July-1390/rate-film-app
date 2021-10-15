@@ -1,9 +1,8 @@
-import React, {useState} from 'react'
+
 import { Container, Form } from "semantic-ui-react";
-import { TextField } from "./TextField";
-import {changeDisplayName} from '../apiServices'
-import {getUserToken} from '../localStorageUserServices'
-import {FaCheckCircle} from 'react-icons/fa'
+import { TextField } from "../TextField";
+import {changeDisplayName} from '../../apiServices'
+import {getUserToken} from '../../localStorageUserServices'
 
 import './AccountSettings.scss';
 
@@ -27,12 +26,10 @@ const AccountSettings = () => {
                             placeholder="John Doe"
                             onSave={updateDisplayName}
                         />
-                        {/* <FaCheckCircle className="check-icon" /> */}
                     </div>                  
                 </Form>
             </Container>  
-        </div>
-        
+        </div>        
         </>
     )
 }

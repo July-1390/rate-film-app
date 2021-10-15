@@ -1,9 +1,6 @@
 import { useState } from "react";
-import {Link} from 'react-router-dom'
-
 import { loginUser } from "../apiServices";
-import { saveUserToken, saveUser } from "../localStorageUserServices";
-import UserProfile from '../pages/UserProfile';
+import { saveUserToken } from "../localStorageUserServices";
 import "./ModalStyles.scss";
 
 const LogInWindow = ({ setIsModalVisible }) => {

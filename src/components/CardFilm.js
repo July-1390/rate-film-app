@@ -37,7 +37,7 @@ const CardFilm = ({ genres }) => {
                         alt="poster film"
                       />
 
-                      <Votes />
+                      <Votes rating={film.rating} />
                     </div>
                     <div className="cards-film-content" key={film.title}>
                       <div className="cards-film-description">

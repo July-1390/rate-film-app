@@ -3,6 +3,10 @@ export interface Actor {
     photo_url: string
 }
 
+export interface Rating {
+    score_with_sign: string
+    votes_count: number
+}
 export interface Film {
     title: string
     title_ru: string
@@ -12,4 +16,10 @@ export interface Film {
     genre: string
     description: string
     actors: Actor[]
+    rating: Rating
 }
+
+
+
+
+

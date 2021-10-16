@@ -1,9 +1,9 @@
 import React from "react";
-// import { FiThumbsUp } from "react-icons/fi";
 import { MdThumbUp, MdThumbDown } from "react-icons/md";
+import {Rating} from '../interfaces/film'
 import "./Votes.scss";
 
-const Votes = () => {
+const Votes = ({rating}: {rating: Rating}) => {
   return (
     <>
       <div className="rating">
@@ -12,7 +12,8 @@ const Votes = () => {
             <MdThumbUp />
           </div>
           <div className="rating-count">
-            <p className="rate-num">+7</p>
+            <p className="rate-num">{rating.score_with_sign}</p>
+            <p>{rating.votes_count}</p>
           </div>
           <div className="rating-minus">
             <MdThumbDown />
@@ -20,17 +21,6 @@ const Votes = () => {
         </div>
       </div>
     </>
-    // <div className="vote-container">
-    //   <div className="vote-wrapper">
-    //     <h3 className="percentage">35%</h3>
-    //     <div className="icon-like">
-    //       <FiThumbsUp />
-    //     </div>
-    //     <div className="count-votes">
-    //       <p>170 votes</p>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 

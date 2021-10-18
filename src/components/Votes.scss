@@ -1,7 +1,5 @@
 @import '../styles/App.scss';
 
-
-
     .rating {        
         position: relative;
         bottom: 70px;
@@ -32,6 +30,39 @@
                         color: #ffff;
                         font-weight: 700;
                     }
+
+                    .vote-num {
+                        opacity: 0;
+                        position: absolute;
+                        background-color: rgba(0,0,0,0.8);
+                        color: #fff;
+                        text-align: center;
+                        min-height: 30px;
+                        padding: 5px 0;
+                        line-height: 20px;
+                        bottom: 100%;
+                        left: 75px;
+                        width: 50%;
+                        border-radius: 3px;
+                        font-size: 12px;
+                        transition: ease 0.2s all;
+
+                        &::before{
+                            position: absolute;
+                            content: "";
+                            display: block;
+                            left: 50%;
+                            margin-left: -6px;
+                            bottom: -12px;
+                            border: 6px solid transparent;
+                            border-top-color: rgba(0,0,0,0.8);
+                        }                   
+                    }
+
+                    &:hover .vote-num {
+                        display: block;
+                        opacity: 1;
+                    }
                 }
 
                 .rating-minus {
@@ -42,42 +73,3 @@
                 }
     }
 }
-
-// .vote-container {
-//     display: flex;
-//     flex-direction: column;
-
-//     .vote-wrapper {
-//         border: 1px solid $grey;
-//         border-radius: 15px;
-//         padding: 15px;
-//         width: 45%;
-//         display: flex;
-//         flex-wrap: wrap;
-//         transition: box-shadow .2s, width .2s;
-
-//         &:hover {
-//             box-shadow: 0 0 8px rgba(33,33,33,.2);
-//             width: 46%;
-//         }
-
-//         .percentage {
-//             font-size: 24px;
-//             color: $title-hover;
-//         }
-
-//         .icon-like { 
-//             float: right;
-//             margin-left: 10px;
-//             font-size: 24px;
-//             color: $text-color;
-//         }
-
-//         .count-votes {
-//             color: $undertone-text-color;
-//             opacity: 50%;
-//         }
-        
-//     }
-    
-// }

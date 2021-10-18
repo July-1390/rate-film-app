@@ -12,8 +12,10 @@ const Votes = ({rating}: {rating: Rating}) => {
             <MdThumbUp />
           </div>
           <div className="rating-count">
-            <p className="rate-num">{rating.score_with_sign}</p>
-            <p>{rating.votes_count}</p>
+            <span className="rate-num">{rating.score_with_sign}</span>
+            <div className="vote-num">
+              <span className="all-votes">Votes: {rating.votes_count}</span>              
+            </div>
           </div>
           <div className="rating-minus">
             <MdThumbDown />

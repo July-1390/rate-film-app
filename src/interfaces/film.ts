@@ -6,6 +6,7 @@ export interface Actor {
 export interface Rating {
     score_with_sign: string
     votes_count: number
+    user_vote: number
 }
 export interface Film {
     title: string

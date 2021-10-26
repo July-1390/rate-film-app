@@ -9,7 +9,8 @@ export interface ApiResponse<T> {
 }
 
 export const loadFilms = async (
-  genres: string[]
+  genres: string[],
+  token?: AccessToken
 ): Promise<ApiResponse<Film[]>> => {
   const searchParams = new URLSearchParams();
 
@@ -18,8 +19,13 @@ export const loadFilms = async (
   }
 
   const url = `${baseUrl}/films?${searchParams}`;
+  let headers = {}
 
-  const response = await fetch(url);
+  if (token) {
+    headers = {'Authorization': `Bearer ${token.access_token}`}
+  }
+
+  const response = await fetch(url, {headers: headers});
   const films = (await response.json()) as Film[];
 
   return {

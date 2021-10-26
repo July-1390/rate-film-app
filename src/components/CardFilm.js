@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Votes from "./Votes";
 import Spinner from "../components/Spinner";
 import { loadFilms } from "../apiServices";
+import {getUserToken} from "../localStorageUserServices";
 import "./CardFilm.scss";
 
 // import { snakeToCamel } from "../helpers";
@@ -11,9 +12,13 @@ const CardFilm = ({ genres }) => {
   const [films, setFilms] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  
+  
+
   useEffect(() => {
     setIsLoading(true);
-    loadFilms(genres).then((response) => {
+    const token = getUserToken()
+    loadFilms(genres, token).then((response) => {
       setFilms(response.data);
       setIsLoading(false);
     });
@@ -28,14 +33,16 @@ const CardFilm = ({ genres }) => {
           <div className="cards-film-container">
             {films.map((film) => (
               <>
-                <Link to={`/films/${film.id}`}>
+
                   <div className="cards-film" key={film.id}>
                     <div className="cards-film-poster">
+                    <Link to={`/films/${film.id}`}>
                       <img
                         key={film.id}
                         src={film.poster_url}
                         alt="poster film"
                       />
+                </Link>
 
                       <Votes rating={film.rating} />
                     </div>
@@ -69,7 +76,6 @@ const CardFilm = ({ genres }) => {
                       </div>
                     </div>
                   </div>
-                </Link>
               </>
             ))}
           </div>

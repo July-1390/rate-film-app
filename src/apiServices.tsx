@@ -1,6 +1,6 @@
 import { Film } from "./interfaces/film";
 import { User, UserCreateErrorResponse, AccessToken } from "./interfaces/user";
-import { Rating } from './interfaces/film';
+import { Rating } from "./interfaces/film";
 
 const baseUrl = "https://rfilm.mswan.ru/api/v1";
 
@@ -20,13 +20,13 @@ export const loadFilms = async (
   }
 
   const url = `${baseUrl}/films?${searchParams}`;
-  let headers = {}
+  let headers = {};
 
   if (token) {
-    headers = {'Authorization': `Bearer ${token.access_token}`}
+    headers = { Authorization: `Bearer ${token.access_token}` };
   }
 
-  const response = await fetch(url, {headers: headers});
+  const response = await fetch(url, { headers: headers });
   const films = (await response.json()) as Film[];
 
   return {
@@ -99,11 +99,15 @@ export const loginUser = async (
   };
 };
 
-export const getUser = async (token: AccessToken): Promise<ApiResponse<User>> => {
+export const getUser = async (
+  token: AccessToken
+): Promise<ApiResponse<User>> => {
   const url = `${baseUrl}/users/me`;
   // const headers = {'Authorization': `Bearer ${token.access_token}`}
 
-  const response = await fetch(url, {headers: {'Authorization': `Bearer ${token.access_token}`}});
+  const response = await fetch(url, {
+    headers: { Authorization: `Bearer ${token.access_token}` },
+  });
   const user = (await response.json()) as User;
 
   return {
@@ -114,10 +118,10 @@ export const getUser = async (token: AccessToken): Promise<ApiResponse<User>> =>
 
 export const changeDisplayName = async (
   displayName: string,
-  token: AccessToken,
+  token: AccessToken
 ): Promise<ApiResponse<User | UserCreateErrorResponse>> => {
   const body = {
-    display_name: displayName
+    display_name: displayName,
   };
 
   const url = `${baseUrl}/users/me`;
@@ -125,7 +129,7 @@ export const changeDisplayName = async (
   const response = await fetch(url, {
     method: "PATCH",
     headers: {
-      "Authorization": `Bearer ${token.access_token}`,
+      Authorization: `Bearer ${token.access_token}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify(body),
@@ -142,20 +146,20 @@ export const changeDisplayName = async (
 export const rateFilm = async (
   filmId: number,
   score: number,
-  token: AccessToken,
+  token: AccessToken
 ): Promise<ApiResponse<Rating>> => {
   const url = `${baseUrl}/rating`;
 
   const body = {
     film_id: filmId,
-    score: score
-  }
+    score: score,
+  };
 
   const response = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token.access_token}`
+      Authorization: `Bearer ${token.access_token}`,
     },
     body: JSON.stringify(body),
   });
@@ -167,6 +171,3 @@ export const rateFilm = async (
     data: rating,
   };
 };
-
-
-

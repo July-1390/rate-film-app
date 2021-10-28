@@ -1,45 +1,43 @@
-@import '../styles/App.scss';
+@import "../styles/App.scss";
 
 .film-page-container {
-    display: flex;
-    margin-top: 60px;
+  display: flex;
+  margin-top: 60px;
 
-    .film-page-poster-wrapper {
-        flex-basis: auto;
-        position: relative;
+  .film-page-poster-wrapper {
+    flex-basis: auto;
+    position: relative;
 
-        .film-page-poster {
-            width: 30vh;
-        }
+    .film-page-poster {
+      width: 30vh;
+    }
+  }
+
+  .film-page-content {
+    flex-grow: 1;
+    overflow: hidden;
+    margin-left: 50px;
+
+    .film-page-title {
+      @include basic-title;
+      color: $title-color;
+      margin-bottom: 5px;
     }
 
-    .film-page-content {
-        flex-grow: 1;
-        overflow: hidden;
-        margin-left: 50px;
-
-        .film-page-title {
-            @include basic-title;
-            color: $title-color;
-            margin-bottom: 5px;
-        }
-
-        .film-page-country {
-            @include basic-text;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
-        .film-page-description {
-            @include basic-text;
-            margin-bottom: 30px;
-        }
-
-        .film-page-image-wrapper{
-            display: flex;
-            padding: 10px;
-            
-        }
-        
+    .film-page-country {
+      @include basic-text;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
+
+    .film-page-description {
+      @include basic-text;
+      margin-bottom: 30px;
+    }
+
+    .film-page-image-wrapper {
+      display: flex;
+      padding: 10px;
+    }
+  }
 }

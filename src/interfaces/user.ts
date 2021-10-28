@@ -1,21 +1,21 @@
 export interface User {
-    username: string
-    email: string
-    is_enabled: boolean
-    display_name: string
+  username: string;
+  email: string;
+  is_enabled: boolean;
+  display_name: string;
 }
 
 export interface ErrorDetail {
-    loc: string[]
-    msg: string
-    type: string
+  loc: string[];
+  msg: string;
+  type: string;
 }
 
 export interface UserCreateErrorResponse {
-    detail: ErrorDetail[]
+  detail: ErrorDetail[];
 }
 
 export interface AccessToken {
-    access_token: string,
-    token_type: string
+  access_token: string;
+  token_type: string;
 }

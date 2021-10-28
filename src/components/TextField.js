@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Form } from "semantic-ui-react";
 
-
 export const TextField = ({
   onSave,
   icon,
@@ -28,7 +27,7 @@ export const TextField = ({
         onChange={() => {
           setSaved(false);
         }}
-        onBlur={async e => {
+        onBlur={async (e) => {
           const val = e.target.value;
           if (val !== lastValue) {
             setSaving(true);

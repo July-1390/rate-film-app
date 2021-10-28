@@ -1,16 +1,16 @@
-@import '../styles/App.scss';
+@import "../styles/App.scss";
 
 .select-container {
+  display: flex;
+  justify-content: flex-end;
+
+  .wrapper-checkbox {
     display: flex;
-    justify-content: flex-end;
+    margin: 30px;
+  }
 
-    .wrapper-checkbox {
-        display: flex;
-        margin: 30px;
-    }
-
-    .basic-multi-select {
-        width: 25%;
-        margin: 20px;
-    }
+  .basic-multi-select {
+    width: 25%;
+    margin: 20px;
+  }
 }

@@ -1,45 +1,43 @@
-@import '../../styles/App.scss';
+@import "../../styles/App.scss";
 
+.one-film {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  padding: 24px 20px;
+  border-radius: 8px;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
 
-.one-film { 
-    display: flex; 
-    border-bottom: 1px solid #eee;
-    padding: 24px 20px;
-    border-radius: 8px;
-    transition-duration: 0.15s;
-    transition-timing-function: ease-out;
-
-      &:hover {
-        background: rgba(0,0,0,0.07);
-        transition: opacity 0.15s ease-out;
-      }
-
-
-      .rating-poster {
-        margin-right: 30px;
-        width: 64px;
-        grid-area: poster;
-      }
-
-      .name-of-film {
-        font-weight: 500;
-        margin-right: 40px;
-        grid-area: name-of-film;
-
-          .translate-name {
-            font-weight: 400;
-            font-size: 13px;
-            color: #333;
-          }
-
-          .genre-of-the-film {
-            font-size: 13px;
-            color: #777;
-          }
-      }
-
-      .rating-stars {
-        grid-area: stars;
-        color: $btn-color;
-      }
+  &:hover {
+    background: rgba(0, 0, 0, 0.07);
+    transition: opacity 0.15s ease-out;
   }
+
+  .rating-poster {
+    margin-right: 30px;
+    width: 64px;
+    grid-area: poster;
+  }
+
+  .name-of-film {
+    font-weight: 500;
+    margin-right: 40px;
+    grid-area: name-of-film;
+
+    .translate-name {
+      font-weight: 400;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .genre-of-the-film {
+      font-size: 13px;
+      color: #777;
+    }
+  }
+
+  .rating-stars {
+    grid-area: stars;
+    color: $btn-color;
+  }
+}

@@ -18,7 +18,7 @@ const LogInWindow = ({ setIsModalVisible }) => {
 
     loginUser(values.username, values.password).then((res) => {
       if (res.statusCode === 200) {
-        saveUserToken(res.data)
+        saveUserToken(res.data);
         setIsModalVisible(false);
       }
 
@@ -83,7 +83,7 @@ const LogInWindow = ({ setIsModalVisible }) => {
                     disabled={!values.username || !values.password}
                   >
                     LOG IN
-                  </button> 
+                  </button>
                 </li>
               </ul>
             </form>

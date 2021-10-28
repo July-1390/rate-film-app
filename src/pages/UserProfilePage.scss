@@ -1,139 +1,137 @@
-@import '../styles/App.scss';
-
+@import "../styles/App.scss";
 
 .profile-container {
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr; 
-    grid-template-rows: 0.4fr 1.2fr 1.4fr; 
-    gap: 0px 0px; 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.4fr 1.2fr 1.4fr;
+  gap: 0px 0px;
 
-      .profile-header-section {
-        display: grid; 
-        grid-template-columns: 1fr 1fr 1fr; 
-        grid-template-rows: 1fr 1fr 1fr; 
-        gap: 0px 0px; 
-        grid-template-areas: 
-          ". . ."
-          "title title title"
-          ". . ."; 
-        grid-area: 1 / 1 / 2 / 4; 
+  .profile-header-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . ."
+      "title title title"
+      ". . .";
+    grid-area: 1 / 1 / 2 / 4;
 
-          .title {
-            grid-area: title;
-            border-bottom: 1px solid #eee;
-          }
-      }
-
-    .left-column {
-      grid-area: 2 / 1 / 4 / 2;
-
-      .avatar-widget{
-        grid-area: avatar;
-        width: 90px;
-      }
-      .user-name {
-        grid-area: user-name;
-        font-size: 16px;
-        font-weight: 500;
-      }
+    .title {
+      grid-area: title;
+      border-bottom: 1px solid #eee;
     }
+  }
 
-    .right-column {
-      grid-area: 2 / 2 / 4 / 4;
+  .left-column {
+    grid-area: 2 / 1 / 4 / 2;
 
-      .nav-user-profile {
-        display: grid;  
-        grid-template-rows: 1.6fr 0 0; 
-        gap: 0px 0px; 
-        grid-template-areas: 
-          "navigation navigation navigation"
-          ". . ."
-          ". . ."; 
-        grid-area: 2 / 2 / 3 / 4; 
+    .avatar-widget {
+      grid-area: avatar;
+      width: 90px;
+    }
+    .user-name {
+      grid-area: user-name;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
 
-        .navigation {
-          display: inline-flex;  
-          grid-area: navigation; 
+  .right-column {
+    grid-area: 2 / 2 / 4 / 4;
 
-          .tabs {
-            color: $text-color;
-            padding: 7px 15px;
-            border: 1px solid #dddd;
-            margin-right: 20px;
-            border-radius: 6px;
-            background-color: $white;
-            font-size: 15px;
+    .nav-user-profile {
+      display: grid;
+      grid-template-rows: 1.6fr 0 0;
+      gap: 0px 0px;
+      grid-template-areas:
+        "navigation navigation navigation"
+        ". . ."
+        ". . .";
+      grid-area: 2 / 2 / 3 / 4;
 
-              &:hover {
-                background-color: $title-hover;
-                color: $white;
-              }
-          }
+      .navigation {
+        display: inline-flex;
+        grid-area: navigation;
 
-          .active-tabs {
-            background: $title-hover;
+        .tabs {
+          color: $text-color;
+          padding: 7px 15px;
+          border: 1px solid #dddd;
+          margin-right: 20px;
+          border-radius: 6px;
+          background-color: $white;
+          font-size: 15px;
+
+          &:hover {
+            background-color: $title-hover;
             color: $white;
           }
         }
+
+        .active-tabs {
+          background: $title-hover;
+          color: $white;
+        }
       }
+    }
 
     .content-tabs {
-      display: grid; 
-      grid-template-rows: 1fr; 
-      gap: 0px 0px; 
-      grid-area: 3 / 2 / 4 / 4; 
+      display: grid;
+      grid-template-rows: 1fr;
+      gap: 0px 0px;
+      grid-area: 3 / 2 / 4 / 4;
       margin-top: 40px;
 
       .content-film {
-        display: none; 
+        display: none;
 
-        .one-film { 
-          display: flex; 
+        .one-film {
+          display: flex;
           border-bottom: 1px solid #eee;
           padding: 24px 20px;
           border-radius: 8px;
           transition-duration: 0.15s;
           transition-timing-function: ease-out;
 
-            &:hover {
-              background: rgba(0,0,0,0.07);
-              transition: opacity 0.15s ease-out;
+          &:hover {
+            background: rgba(0, 0, 0, 0.07);
+            transition: opacity 0.15s ease-out;
+          }
+
+          .rating-poster {
+            margin-right: 30px;
+            width: 64px;
+            grid-area: poster;
+          }
+
+          .name-of-film {
+            font-weight: 500;
+            margin-right: 40px;
+            grid-area: name-of-film;
+
+            .translate-name {
+              font-weight: 400;
+              font-size: 13px;
+              color: #333;
             }
 
-    
-            .rating-poster {
-              margin-right: 30px;
-              width: 64px;
-              grid-area: poster;
+            .genre-of-the-film {
+              font-size: 13px;
+              color: #777;
             }
+          }
 
-            .name-of-film {
-              font-weight: 500;
-              margin-right: 40px;
-              grid-area: name-of-film;
-
-                .translate-name {
-                  font-weight: 400;
-                  font-size: 13px;
-                  color: #333;
-                }
-
-                .genre-of-the-film {
-                  font-size: 13px;
-                  color: #777;
-                }
-            }
-
-            .rating-stars {
-              grid-area: stars;
-              color: $btn-color;
-            }
+          .rating-stars {
+            grid-area: stars;
+            color: $btn-color;
+          }
         }
-    }
+      }
 
-    .active-content {
-      display: block;
-    }
+      .active-content {
+        display: block;
       }
     }
+  }
 }

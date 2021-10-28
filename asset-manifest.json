@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/rate-film-app/static/css/main.55ad4d7f.chunk.css",
-    "main.js": "/rate-film-app/static/js/main.4f419f86.chunk.js",
-    "main.js.map": "/rate-film-app/static/js/main.4f419f86.chunk.js.map",
+    "main.js": "/rate-film-app/static/js/main.04930522.chunk.js",
+    "main.js.map": "/rate-film-app/static/js/main.04930522.chunk.js.map",
     "runtime-main.js": "/rate-film-app/static/js/runtime-main.bb40ae94.js",
     "runtime-main.js.map": "/rate-film-app/static/js/runtime-main.bb40ae94.js.map",
     "static/js/2.2a6053cd.chunk.js": "/rate-film-app/static/js/2.2a6053cd.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.bb40ae94.js",
     "static/js/2.2a6053cd.chunk.js",
     "static/css/main.55ad4d7f.chunk.css",
-    "static/js/main.4f419f86.chunk.js"
+    "static/js/main.04930522.chunk.js"
   ]
 }

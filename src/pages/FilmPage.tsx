@@ -6,12 +6,13 @@ import { Film } from "../interfaces/film";
 import Button from "../components/buttons/Button";
 import "./FilmPage.scss";
 import Votes from "../components/Votes";
+import { getUserToken } from "../localStorageUserServices";
 
 const FilmPage = () => {
   const { id }: { id: any } = useParams();
 
   const { isLoading, data } = useQuery<ApiResponse<Film>>("film", () =>
-    getFilm(id)
+    getFilm(id, getUserToken())
   );
 
   return (

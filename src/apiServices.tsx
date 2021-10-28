@@ -35,16 +35,25 @@ export const loadFilms = async (
   };
 };
 
-export const getFilm = async (id: string): Promise<ApiResponse<Film>> => {
+export const getFilm = async (id: string, token?: AccessToken): Promise<ApiResponse<Film>> => {
   const url = `${baseUrl}/films/${id}`;
 
-  const response = await fetch(url);
+  let headers = {};
+
+  if (token) {
+    headers = { Authorization: `Bearer ${token.access_token}` };
+  }
+
+  const response = await fetch(url, {
+    headers: headers,
+  });
   const film = (await response.json()) as Film;
 
   return {
     statusCode: response.status,
     data: film,
   };
+  
 };
 
 export const createUser = async (

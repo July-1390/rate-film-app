@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
 import { MdThumbUp, MdThumbDown } from "react-icons/md";
 import { rateFilm } from "../apiServices";
@@ -8,6 +8,11 @@ import "./Votes.scss";
 
 const Votes = ({ rating, filmId }: { rating: Rating; filmId: number }) => {
   const [innerRating, setInnerRating] = useState(rating);
+
+
+  useEffect(() => {
+    setInnerRating(rating)
+  },[])
 
   const handleSubmit = (newVoteValue: number) => {
     const token = getUserToken();

@@ -1,38 +1,75 @@
-import React, {useEffect, useState} from "react";
+import { useState } from "react";
 import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
-import {MdThumbUp, MdThumbDown} from 'react-icons/md';
-import {Rating} from '../interfaces/film'
+import { MdThumbUp, MdThumbDown } from "react-icons/md";
+import { rateFilm } from "../apiServices";
+import { Rating } from "../interfaces/film";
+import { getUserToken } from "../localStorageUserServices";
 import "./Votes.scss";
 
-const Votes = ({rating}: {rating: Rating}) => {
+const Votes = ({ rating, filmId }: { rating: Rating; filmId: number }) => {
+  const [innerRating, setInnerRating] = useState(rating);
 
-const [userVote, setUserVote] = useState(0)
+  const handleSubmit = (newVoteValue: number) => {
+    const token = getUserToken();
 
-useEffect(() => {
-  setUserVote(rating.user_vote)
-},[])
+    if (token === null) {
+      alert("Only registered users can vote.");
+      return;
+    }
 
-const handleSubmit = (value: number) => {
-  setUserVote(value)
-}
+    const newRating = {
+      ...innerRating,
+      user_vote: newVoteValue,
+    };
+
+    setInnerRating(newRating);
+
+    rateFilm(filmId, newVoteValue, token).then((res) => {
+      setInnerRating(res.data);
+    });
+  };
 
   return (
     <>
       <div className="rating">
         <div className="rate-box">
           <div className="rating-props">
-            {userVote > 0 ? <button className="rating-props-button-clicked" disabled><MdThumbUp /></button> : <button className="rating-props-button" onClick={() => handleSubmit(1)}><FiThumbsUp /></button>}                              
+            {innerRating.user_vote > 0 ? (
+              <button className="rating-props-button-clicked" disabled>
+                <MdThumbUp />
+              </button>
+            ) : (
+              <button
+                className="rating-props-button"
+                onClick={() => handleSubmit(1)}
+              >
+                <FiThumbsUp />
+              </button>
+            )}
           </div>
           <div className="rating-count">
-            <span className="rate-num">{rating.score_with_sign}</span>
+            <span className="rate-num">{innerRating.score_with_sign}</span>
             <div className="vote-num">
-              <span className="all-votes">Votes: {rating.votes_count}</span>              
+              <span className="all-votes">
+                Votes: {innerRating.votes_count}
+              </span>
             </div>
           </div>
           <div className="rating-const">
-          {userVote < 0 ? <button className="rating-const-button-clicked" disabled><MdThumbDown /></button> : <button className="rating-const-button" onClick={() => handleSubmit(-1)}><FiThumbsDown /></button>}
+            {innerRating.user_vote < 0 ? (
+              <button className="rating-const-button-clicked" disabled>
+                <MdThumbDown />
+              </button>
+            ) : (
+              <button
+                className="rating-const-button"
+                onClick={() => handleSubmit(-1)}
+              >
+                <FiThumbsDown />
+              </button>
+            )}
           </div>
-        </div> 
+        </div>
       </div>
     </>
   );

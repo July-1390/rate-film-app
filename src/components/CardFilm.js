@@ -44,7 +44,7 @@ const CardFilm = ({ genres }) => {
                       />
                 </Link>
 
-                      <Votes rating={film.rating} />
+                      <Votes rating={film.rating} filmId={film.id} />
                     </div>
                     <div className="cards-film-content" key={film.title}>
                       <div className="cards-film-description">

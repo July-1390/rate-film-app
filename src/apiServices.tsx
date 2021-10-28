@@ -1,5 +1,6 @@
 import { Film } from "./interfaces/film";
 import { User, UserCreateErrorResponse, AccessToken } from "./interfaces/user";
+import { Rating } from './interfaces/film';
 
 const baseUrl = "https://rfilm.mswan.ru/api/v1";
 
@@ -137,4 +138,35 @@ export const changeDisplayName = async (
     data: userOrError,
   };
 };
+
+export const rateFilm = async (
+  filmId: number,
+  score: number,
+  token: AccessToken,
+): Promise<ApiResponse<Rating>> => {
+  const url = `${baseUrl}/rating`;
+
+  const body = {
+    film_id: filmId,
+    score: score
+  }
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token.access_token}`
+    },
+    body: JSON.stringify(body),
+  });
+
+  const rating = (await response.json()) as Rating;
+
+  return {
+    statusCode: response.status,
+    data: rating,
+  };
+};
+
+
 

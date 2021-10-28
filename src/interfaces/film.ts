@@ -9,6 +9,7 @@ export interface Rating {
   user_vote: number;
 }
 export interface Film {
+  id: number;
   title: string;
   title_ru: string;
   poster_url: string;

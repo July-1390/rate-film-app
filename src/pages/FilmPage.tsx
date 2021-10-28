@@ -5,6 +5,7 @@ import { getFilm, ApiResponse } from "../apiServices";
 import { Film } from "../interfaces/film";
 import Button from "../components/buttons/Button";
 import "./FilmPage.scss";
+import Votes from "../components/Votes";
 
 const FilmPage = () => {
   const { id }: { id: any } = useParams();
@@ -26,6 +27,8 @@ const FilmPage = () => {
               src={data.data.poster_url}
               alt="film poster"
             />
+          <Votes rating={data.data.rating} filmId={id} />
+
           </div>
           <div className="film-page-content">
             <h2 className="film-page-title">{data.data.title}</h2>

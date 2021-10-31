@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Votes from "./Votes";
 import Spinner from "../components/Spinner";
-import { loadFilms } from "../apiServices";
+import { loadFilms } from "../apiServices/film";
 import { getUserToken } from "../localStorageUserServices";
 import "./CardFilm.scss";
 

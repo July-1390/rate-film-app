@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { loginUser } from "../apiServices";
+import { loginUser } from "../apiServices/user";
+import { AccessToken } from "../interfaces/user";
 import { saveUserToken } from "../localStorageUserServices";
-import "./ModalStyles.scss";
+import "./AuthStyle.scss";
 
-const LogInWindow = ({ setIsModalVisible }) => {
+const LogInWindow = ({ setIsModalVisible }:  {setIsModalVisible: Function}) => {
   const [values, setValues] = useState({
     username: "",
     password: "",
@@ -12,18 +13,21 @@ const LogInWindow = ({ setIsModalVisible }) => {
 
   const [formError, setFormError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     setFormError("");
 
     loginUser(values.username, values.password).then((res) => {
       if (res.statusCode === 200) {
-        saveUserToken(res.data);
+        const token = res.data as AccessToken;
+        saveUserToken(token);
         setIsModalVisible(false);
       }
 
       if (res.statusCode >= 400 && res.statusCode < 500) {
-        setFormError(res.data.detail);
+        // @ts-ignore
+        const error = res.data.detail;
+        setFormError(error); 
       }
       setSubmitted(true);
     });

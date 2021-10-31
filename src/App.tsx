@@ -6,8 +6,8 @@ import Header from "./components/Header";
 import ListOfFilms from "./pages/ListOfFilms";
 import FilmPage from "./pages/FilmPage";
 import UserProfile from "./pages/UserProfilePage";
-import LogInWindow from "./components/LogIn";
-import SignUpWindow from "./components/SignUp";
+import LogInWindow from "./auth/LogIn";
+import SignUpWindow from "./auth/SignUp";
 
 function App() {
   const [isModalVisible, setIsModalVisible] = useState(false);

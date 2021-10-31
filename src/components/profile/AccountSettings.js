@@ -1,6 +1,7 @@
 import { Container, Form } from "semantic-ui-react";
 import { TextField } from "../TextField";
-import { changeDisplayName } from "../../apiServices";
+import {changeDisplayName} from '../../apiServices/user'
+
 import { getUserToken } from "../../localStorageUserServices";
 
 import "./AccountSettings.scss";

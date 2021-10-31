@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
 import { MdThumbUp, MdThumbDown } from "react-icons/md";
-import { rateFilm } from "../apiServices";
+import { rateFilm } from "../apiServices/film";
 import { Rating } from "../interfaces/film";
 import { getUserToken } from "../localStorageUserServices";
 import "./Votes.scss";

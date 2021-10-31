@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getUser } from "../apiServices";
+import { getUser } from "../apiServices/user";
 import MovieRatings from "../components/profile/MovieRatings";
 import AccountSettings from "../components/profile/AccountSettings";
 import { getUserToken } from "../localStorageUserServices";

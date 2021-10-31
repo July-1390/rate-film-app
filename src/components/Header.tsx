@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GiFilmSpool } from "react-icons/gi";
 import { getUserToken } from "../localStorageUserServices";
-import { getUser } from "../apiServices";
+import { getUser } from "../apiServices/user";
 import SignUpButton from "../components/buttons/SignUpButton";
 import LogInButton from "../components/buttons/LogInButton";
 import ThumbMenuProfile from "./profile/ThumbMenuProfile";

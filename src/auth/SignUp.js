@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { createUser } from "../apiServices";
-import "./ModalStyles.scss";
+import { createUser } from "../apiServices/user";
+import "./AuthStyle.scss";
 
 const defaultFormErrors = {
   username: null,

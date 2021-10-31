@@ -1,12 +1,13 @@
 import { useQuery } from "react-query";
 import { useParams, Link } from "react-router-dom";
 
-import { getFilm, ApiResponse } from "../apiServices";
+import { getFilm } from "../apiServices/film";
 import { Film } from "../interfaces/film";
 import Button from "../components/buttons/Button";
 import "./FilmPage.scss";
 import Votes from "../components/Votes";
 import { getUserToken } from "../localStorageUserServices";
+import { ApiResponse } from "../interfaces/response";
 
 const FilmPage = () => {
   const { id }: { id: any } = useParams();

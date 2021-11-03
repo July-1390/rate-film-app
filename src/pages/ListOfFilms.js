@@ -1,13 +1,13 @@
 import { useState } from "react";
-import CardFilm from "../components/CardFilm";
-import MySelect from "../components/MySelect";
+import CardFilm from "../components/film/CardFilm";
+import Select from "../components/Select";
 
 const ListOfFilms = () => {
   const [genres, setGenres] = useState([]);
 
   return (
     <>
-      <MySelect setSelectedGenres={setGenres} />
+      <Select setSelectedGenres={setGenres} />
       <CardFilm genres={genres} />
     </>
   );

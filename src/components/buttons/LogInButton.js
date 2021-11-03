@@ -2,6 +2,7 @@ import React from "react";
 import "./LogInButton.scss";
 
 const LogInButton = ({ setIsModalVisible }) => {
+  
   const handleShow = () => {
     setIsModalVisible(true);
   };

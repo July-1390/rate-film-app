@@ -54,7 +54,7 @@ export const loadFilms = async (
   export const rateFilm = async (
     filmId: number,
     score: number,
-    token: AccessToken
+    token: string
   ): Promise<ApiResponse<Rating>> => {
     const url = `${baseUrl}/rating`;
   
@@ -67,7 +67,7 @@ export const loadFilms = async (
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token.access_token}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(body),
     });

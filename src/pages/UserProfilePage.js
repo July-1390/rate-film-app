@@ -1,33 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import {AuthTokenContext} from "../App"
 import { getUser } from "../apiServices/user";
 import MovieRatings from "../components/profile/MovieRatings";
 import AccountSettings from "../components/profile/AccountSettings";
-import { getUserToken } from "../localStorageUserServices";
 
 import "./UserProfilePage.scss";
 
 const UserProfile = () => {
+  const { authToken } = useContext(AuthTokenContext); 
   const [toggleState, setToggleState] = useState(1);
 
   const [user, setUser] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
-    const token = getUserToken();
-
-    if (!token) {
+    if (!authToken) {
       setUser(null);
-      setIsLoading(false);
       return;
     }
 
-    getUser(token).then((user) => {
+    setIsLoading(true);
+
+    getUser(authToken).then((user) => {
       setUser(user.data);
 
       setIsLoading(false);
     });
-  }, []);
+  }, [authToken]);
 
   const toggleTab = (index) => {
     setToggleState(index);
@@ -54,7 +53,7 @@ const UserProfile = () => {
               />
             </div>
             <h2 className="user-name">
-              {user.display_name} - {user.username}
+              {user.display_name} {user.username}
             </h2>
           </div>
 

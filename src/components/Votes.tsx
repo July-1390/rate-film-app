@@ -1,23 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
 import { MdThumbUp, MdThumbDown } from "react-icons/md";
 import { rateFilm } from "../apiServices/film";
+import { AuthTokenContext } from "../App";
 import { Rating } from "../interfaces/film";
-import { getUserToken } from "../localStorageUserServices";
 import "./Votes.scss";
 
 const Votes = ({ rating, filmId }: { rating: Rating; filmId: number }) => {
+  const { authToken } = useContext(AuthTokenContext); 
   const [innerRating, setInnerRating] = useState(rating);
 
 
   useEffect(() => {
     setInnerRating(rating)
-  },[])
+
+  }, [rating])
 
   const handleSubmit = (newVoteValue: number) => {
-    const token = getUserToken();
 
-    if (token === null) {
+    if (!authToken) {
       alert("Only registered users can vote.");
       return;
     }
@@ -29,7 +30,7 @@ const Votes = ({ rating, filmId }: { rating: Rating; filmId: number }) => {
 
     setInnerRating(newRating);
 
-    rateFilm(filmId, newVoteValue, token).then((res) => {
+    rateFilm(filmId, newVoteValue, authToken).then((res) => {
       setInnerRating(res.data);
     });
   };

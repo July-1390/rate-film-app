@@ -1,15 +1,20 @@
-import { logOutUser } from "../../localStorageUserServices";
+import { useContext } from "react";
+import { AuthTokenContext } from "../../App"
+import { removeAuthToken } from "../../localStorageUserServices";
 import { Link } from "react-router-dom";
 import { RiArrowDropDownFill } from "react-icons/ri";
 import { User } from "../../interfaces/user";
-import { AccessToken } from "../../interfaces/user";
 import "./ThumbMenuProfile.scss";
 
 const ThumbMenuProfile = (
   { user }: { user: User },
-  { token }: { token: AccessToken }
 ) => {
-  const handleLogOut = () => logOutUser(token);
+  const { setAuthToken } = useContext(AuthTokenContext); 
+
+  const handleLogOut = () => {
+    removeAuthToken();
+    setAuthToken("")
+  };
 
   return (
     <>

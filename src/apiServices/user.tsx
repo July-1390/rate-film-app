@@ -56,12 +56,12 @@ export const createUser = async (
   };
   
   export const getUser = async (
-    token: AccessToken
+    token: string
   ): Promise<ApiResponse<User>> => {
     const url = `${baseUrl}/users/me`;
   
     const response = await fetch(url, {
-      headers: { Authorization: `Bearer ${token.access_token}` },
+      headers: { Authorization: `Bearer ${token}` },
     });
     const user = (await response.json()) as User;
   

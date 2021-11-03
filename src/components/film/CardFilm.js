@@ -1,24 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import {AuthTokenContext} from '../../App'
 import FilmPoster from "./FilmPoster";
 import Spinner from "../Spinner";
 import { loadFilms } from "../../apiServices/film";
-import { getUserToken } from "../../localStorageUserServices";
 import FilmDescription from "./FilmDescription";
 import FilmActors from "./FilmActors";
 import "./CardFilm.scss";
 
 const CardFilm = ({ genres }) => {
+  const { authToken } = useContext(AuthTokenContext); 
   const [films, setFilms] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
-    const token = getUserToken();
-    loadFilms(genres, token).then((response) => {
+    
+    loadFilms(genres, authToken).then((response) => {
       setFilms(response.data);
       setIsLoading(false);
     });
-  }, [genres]);
+  }, [genres, authToken]);
 
   return (
     <>

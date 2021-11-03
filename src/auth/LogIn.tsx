@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthTokenContext } from "../App"
 import { loginUser } from "../apiServices/user";
 import { AccessToken } from "../interfaces/user";
 import { saveUserToken } from "../localStorageUserServices";
 import "./AuthStyle.scss";
 
 const LogInWindow = ({ setIsModalVisible }:  {setIsModalVisible: Function}) => {
+  const { setAuthToken } = useContext(AuthTokenContext); 
+
   const [values, setValues] = useState({
     username: "",
     password: "",
@@ -21,6 +24,7 @@ const LogInWindow = ({ setIsModalVisible }:  {setIsModalVisible: Function}) => {
       if (res.statusCode === 200) {
         const token = res.data as AccessToken;
         saveUserToken(token);
+        setAuthToken(token.access_token);
         setIsModalVisible(false);
       }
 

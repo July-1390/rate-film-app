@@ -1,14 +1,12 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { GiFilmSpool } from "react-icons/gi";
-import { getUser } from "../apiServices/user";
 import SignUpButton from "../components/buttons/SignUpButton";
 import LogInButton from "../components/buttons/LogInButton";
 import ThumbMenuProfile from "./profile/ThumbMenuProfile";
-import { User } from "../interfaces/user";
 import Button from "./buttons/Button";
+import { UserContext } from "../App";
 import "./Header.scss";
-import { AuthTokenContext } from "../App";
 
 const Header = ({
   setIsModalVisible,
@@ -17,25 +15,10 @@ const Header = ({
   setIsModalVisible: (val: boolean) => void;
   setIsSignUpWindowVisible: (val: boolean) => void;
 }) => {
-  const { authToken } = useContext(AuthTokenContext); 
-  const [user, setUser] = useState<User | null>();
-  const [isLoading, setIsLoading] = useState(true);
+  const { user } = useContext(UserContext)
 
-  useEffect(() => {
+  const [isLoading] = useState(false);
 
-    if (!authToken) {
-      setUser(null);
-      return;
-    }
-
-    setIsLoading(true);
-
-    getUser(authToken).then((user) => {
-      setUser(user.data);
-
-      setIsLoading(false);
-    });
-  }, [authToken]);
 
   if (isLoading) {
     <></>;

@@ -71,7 +71,7 @@ const LogInWindow = ({ setIsModalVisible }:  {setIsModalVisible: Function}) => {
                     className={`form-field ${
                       formError ? "form-field-error" : ""
                     }`}
-                    type="password"
+                    type="text"
                     autoComplete="on"
                     name="password"
                     value={values.password}

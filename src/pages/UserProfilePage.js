@@ -1,32 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
-import {AuthTokenContext} from "../App"
-import { getUser } from "../apiServices/user";
+import { useState, useContext } from "react";
+import { UserContext } from "../App";
 import MovieRatings from "../components/profile/MovieRatings";
 import AccountSettings from "../components/profile/AccountSettings";
-
 import "./UserProfilePage.scss";
 
 const UserProfile = () => {
-  const { authToken } = useContext(AuthTokenContext); 
+  const { user } = useContext(UserContext);
+
   const [toggleState, setToggleState] = useState(1);
-
-  const [user, setUser] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    if (!authToken) {
-      setUser(null);
-      return;
-    }
-
-    setIsLoading(true);
-
-    getUser(authToken).then((user) => {
-      setUser(user.data);
-
-      setIsLoading(false);
-    });
-  }, [authToken]);
+  const [isLoading] = useState(true);
 
   const toggleTab = (index) => {
     setToggleState(index);

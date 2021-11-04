@@ -9,9 +9,10 @@ import "./ThumbMenuProfile.scss";
 const ThumbMenuProfile = (
   { user }: { user: User },
 ) => {
-  const { setAuthToken } = useContext(AuthTokenContext); 
+  const { setAuthToken } = useContext(AuthTokenContext);
 
-  const handleLogOut = () => {
+  const handleLogOut = (e: any) => {
+    e.preventDefault();
     removeAuthToken();
     setAuthToken("")
   };
@@ -36,9 +37,9 @@ const ThumbMenuProfile = (
           </Link>
         </li>
         <li className="dropdown-item">
-          <a className="dropdown-link" onClick={handleLogOut} href="/">
+          <button className="dropdown-link" onClick={handleLogOut}>
             Log out
-          </a>
+          </button>
         </li>
       </ul>
     </>

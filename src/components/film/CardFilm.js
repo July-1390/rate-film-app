@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import {AuthTokenContext} from '../../App'
+import { useState, useEffect, useContext } from "react";
+import { AuthTokenContext } from "../../App";
 import FilmPoster from "./FilmPoster";
 import Spinner from "../Spinner";
 import { loadFilms } from "../../apiServices/film";
@@ -8,13 +8,13 @@ import FilmActors from "./FilmActors";
 import "./CardFilm.scss";
 
 const CardFilm = ({ genres }) => {
-  const { authToken } = useContext(AuthTokenContext); 
+  const { authToken } = useContext(AuthTokenContext);
   const [films, setFilms] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
-    
+
     loadFilms(genres, authToken).then((response) => {
       setFilms(response.data);
       setIsLoading(false);
@@ -32,7 +32,7 @@ const CardFilm = ({ genres }) => {
               <>
                 <div className="cards-film" key={film.id}>
                   <FilmPoster film={film} />
-                  <div className="cards-film-content" key={film.title}>
+                  <div className="cards-film-content">
                     <FilmDescription film={film} />
                     <div>
                       <FilmActors film={film} />

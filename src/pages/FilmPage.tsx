@@ -1,3 +1,5 @@
+// import { useContext } from 'react'
+// import {AuthTokenContext} from '../App'
 import { useQuery } from "react-query";
 import { useParams, Link } from "react-router-dom";
 
@@ -11,6 +13,8 @@ import { ApiResponse } from "../interfaces/response";
 
 const FilmPage = () => {
   const { id }: { id: any } = useParams();
+
+  // const { authToken } = useContext(AuthTokenContext); 
 
   const { isLoading, data } = useQuery<ApiResponse<Film>>("film", () =>
     getFilm(id, getUserToken())
@@ -29,7 +33,7 @@ const FilmPage = () => {
               src={data.data.poster_url}
               alt="film poster"
             />
-          <Votes rating={data.data.rating} filmId={id} />
+            <Votes rating={data.data.rating} filmId={id} />
 
           </div>
           <div className="film-page-content">

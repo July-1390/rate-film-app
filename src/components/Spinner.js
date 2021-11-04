@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { css } from "@emotion/react";
 import BeatLoader from "react-spinners/BeatLoader";
 
-const Spinner = ({ isVisible }) => {
-  let [color, setColor] = useState("#f9c64e");
+const Spinner = () => {
+  let [color] = useState("#f9c64e");
 
   const override = css`
     flex: 0 0 auto;

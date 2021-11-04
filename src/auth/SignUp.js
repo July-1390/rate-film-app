@@ -16,7 +16,7 @@ const SignUpWindow = ({ setIsSignUpWindowVisible }) => {
     password: "",
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const [setSubmitted] = useState(false);
   const [formErrors, setFormErrors] = useState(defaultFormErrors);
 
   const handleCloseSignUp = () => setIsSignUpWindowVisible(false);

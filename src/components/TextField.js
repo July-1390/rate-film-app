@@ -10,7 +10,7 @@ export const TextField = ({
   ...props
 }) => {
   const [saving, setSaving] = useState(false);
-  const [saved, setSaved] = useState(false);
+  const [setSaved] = useState(false);
   const [saveError, setSaveError] = useState();
   const [lastValue, setLastValue] = useState(value || "");
   return (
